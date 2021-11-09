@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8" />
+	<title>Клавиатурный тренажер</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" >
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+	<!--Header  -->
+	<header class="header" id="header">
+		<div class="container">
+			<div class="nav">
+				<div class="select">
+					<a href="#" class="arrow">
+						<img src="img/arrow.svg" alt="arrow">
+					</a>
+					<a href="#" class="menu">
+						Русский
+					</a>
+				</div>
+				<div class="logotype">
+					<a href="#" class="logo">
+						Typo
+					</a>
+				</div>
+				<div class="controlers" >
+					<div class="switch-control" id="switch-control" style="position: relative;">
+            			<img src="img/en.png" alt="" id="ru" style="position: absolute;">
+            			<img src="img/ru.png" alt="" id="en" style="position: absolute;" class="hidden">
+           			 	<div id="circle">
+           			 	</div>
+        			</div>
+        			<div class="switch-control" id="switch-control" style="position: relative;">
+            			<img src="img/day.svg" alt="" id="day" style="position: absolute;">
+            			<img src="img/night.svg" alt="" id="night" style="position: absolute;" class="hidden">
+           			 	<div id="circle">
+           			 	</div>
+           			</div>
+        		</div>
+			</div>
+		</div>
+		<div class="devider"></div>
+	</header>
+	<section class="content" id="content">
+		<div class="container">
+			<!-- Text -->
+			<!-- <div class="text error"> -->
+			<div class="text" id="textExample">
+				<p class="line line-1">
+					<span class="done">
+					 It is a long established fact that a reader will be
+					</span>
+					<span class="hint">d</span>istracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their
+					</p> 
+					<p class="line hidden">default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+				</p>
+			</div>
+			<!-- // Text  -->
+			<!-- Input field -->
+			<form action="" class="form">
+				<input
+					id="input" type="text" class="input-text" placeholder="Поле для ввода текста" value="reader will be"/>
+				<input
+					id="input" type="text" class="input-line"/>
+			</form>
+			<!-- // Input field -->
+		
+			<!-- Keyboard-ru -->
+			<div class="keyboard-wrapper">
+				<div class="keyboard">
+					<div class="triggers">
+						<a href="#" class="trigger"><img src="img/fill.png"  alt="fill"></a>
+						<a href="#" class="trigger"><img src="img/mini-keyboard.png"  alt="keyboard"></a>
+						<a href="#" class="trigger"><img src="img/hand.png"  alt="hand"></a>
+					</div>
+					<div class="line">
+						<div id="letter_ё">Ё</div>
+						<div id="letter_1">1 <sup>!</sup></div>
+						<div id="letter_2">2 <sup>"</sup></div>
+						<div id="letter_3">3 <sup>№</sup></div>
+						<div id="letter_4">4 <sup>;</sup></div>
+						<div id="letter_5">5 <sup>%</sup></div>
+						<div id="letter_6">6 <sup>:</sup></div>
+						<div id="letter_7">7 <sup>?</sup></div>
+						<div id="letter_8">8 <sup>*</sup></div>
+						<div id="letter_9">9 <sup>(</sup></div>
+						<div id="letter_0">0 <sup>)</sup></div>
+						<div id="letter_minus">- <sup>_</sup></div>
+						<div id="letter_plus">= <sup>+</sup></div>
+						<div class="backspace" id="letter_backspace">Backspace</div>
+					</div>
+					<div class="line">
+						<div class="tab" id="letter_tab">Tab</div>
+						<div id="letter_й">Й</div>
+						<div id="letter_ц">Ц</div>
+						<div id="letter_у">У</div>
+						<div id="letter_к">К</div>
+						<div id="letter_е">Е</div>
+						<div id="letter_н">Н</div>
+						<div id="letter_г">Г</div>
+						<div id="letter_ш">Ш</div>
+						<div id="letter_щ">Щ</div>
+						<div id="letter_з">З</div>
+						<div id="letter_х">Х</div>
+						<div id="letter_ъ">Ъ</div>
+						<div id="letter_slash">\</div>
+					</div>
+					<div class="line">
+						<div class="caps" id="letter_capslock">Caps Lock</div>
+						<div id="letter_ф">Ф</div>
+						<div id="letter_ы">Ы</div>
+						<div id="letter_в">В</div>
+						<div id="letter_а">А</div>
+						<div id="letter_п">П</div>
+						<div id="letter_р">Р</div>
+						<div id="letter_о">О</div>
+						<div id="letter_л">Л</div>
+						<div id="letter_д">Д</div>
+						<div id="letter_ж">Ж</div>
+						<div id="letter_э">Э</div>
+						<div class="enter" id="letter_enter">Enter</div>
+					</div>
+					<div class="line">
+						<div class="shift">Shift</div>
+						<div id="letter_я">Я</div>
+						<div id="letter_ч">Ч</div>
+						<div id="letter_с">С</div>
+						<div id="letter_м">М</div>
+						<div id="letter_и">И</div>
+						<div id="letter_т">Т</div>
+						<div id="letter_ь">Ь</div>
+						<div id="letter_б">Б</div>
+						<div id="letter_ю">Ю</div>
+						<div id="letter_dot">. <sup>,</sup></div>
+						<div class="shift">Shift</div>
+					</div>
+					<div class="line">
+						<div class="space" id="letter_space"></div>
+						<div class="alt" id="letter_alt">Alt</div>
+					</div>
+				</div>
+			</div>
+			<!-- // Keyboard-ru -->
+
+			<!-- Keyboard-en -->
+			<div class="keyboard-wrapper">
+				<div class="keyboard" >
+					<div class="triggers">
+						<a href="#" class="trigger"><img src="img/fill.png"  alt="fill"></a>
+						<a href="#" class="trigger"><img src="img/mini-keyboard.png"  alt="keyboard"></a>
+						<a href="#" class="trigger"><img src="img/hand.png"  alt="hand"></a>
+					</div>
+					<div class="line">
+						<div id="letter_`">`</div>
+						<div id="letter_1">1 <sup>!</sup></div>
+						<div id="letter_2">2 <sup>@</sup></div>
+						<div id="letter_3">3 <sup>#</sup></div>
+						<div id="letter_4">4 <sup>$</sup></div>
+						<div id="letter_5">5 <sup>%</sup></div>
+						<div id="letter_6">6 <sup>^</sup></div>
+						<div id="letter_7">7 <sup>&</sup></div>
+						<div id="letter_8">8 <sup>*</sup></div>
+						<div id="letter_9">9 <sup>(</sup></div>
+						<div id="letter_0">0 <sup>)</sup></div>
+						<div id="letter_minus">- <sup>_</sup></div>
+						<div id="letter_plus">= <sup>+</sup></div>
+						<div class="backspace" id="letter_backspace">Backspace</div>
+					</div>
+					<div class="line">
+						<div class="tab" id="letter_tab">Tab</div>
+						<div id="letter_q">Q</div>
+						<div id="letter_w">W</div>
+						<div id="letter_e">E</div>
+						<div id="letter_r">R</div>
+						<div id="letter_t">T</div>
+						<div id="letter_y">Y</div>
+						<div id="letter_u">U</div>
+						<div id="letter_i">I</div>
+						<div id="letter_o">O</div>
+						<div id="letter_p">P</div>
+						<div id="letter_[">[</div>
+						<div id="letter_]">]</div>
+						<div id="letter_slash">\</div>
+					</div>
+					<div class="line">
+						<div class="caps" id="letter_capslock">Caps Lock</div>
+						<div id="letter_a">A</div>
+						<div id="letter_s">S</div>
+						<div id="letter_d">D</div>
+						<div id="letter_f">F</div>
+						<div id="letter_g">G</div>
+						<div id="letter_h">H</div>
+						<div id="letter_j">J</div>
+						<div id="letter_k">K</div>
+						<div id="letter_l">L</div>
+						<div id="letter_;">;</div>
+						<div id="letter_'">'</div>
+						<div class="enter" id="letter_enter">Enter</div>
+					</div>
+					<div class="line">
+						<div class="shift">Shift</div>
+						<div id="letter_я">Z</div>
+						<div id="letter_ч">X</div>
+						<div id="letter_с">C</div>
+						<div id="letter_м">V</div>
+						<div id="letter_и">B</div>
+						<div id="letter_т">N</div>
+						<div id="letter_ь">M</div>
+						<div id="letter_б">,</div>
+						<div id="letter_ю">.</div>
+						<div id="letter_dot">/ <sup>?</sup></div>
+						<div class="shift">Shift</div>
+					</div>
+					<div class="line">
+						<div class="space" id="letter_space"></div>
+						<div class="alt" id="letter_alt">Alt</div>
+					</div>
+				</div>
+			</div>
+			<!-- // Keyboard-en -->
+		</div>
+	</section>
+	<div class="devider"></div>
+	<section class="results" id="results">
+		<div class="container">
+			<div class="text text-result" id="textExample">
+				<p class="line line-1">
+					 It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+				</p>
+			</div>
+			<div class="line-2">
+				<div class="text text-your-result" id="textExample">
+					<h2>Результаты</h2>
+					<div class="your-result">
+						<div class="result-item">
+							<h3>Слов в минуту</h3>
+							<p>65</p>
+						</div>
+						<img src="img/line.svg">
+						<div class="result-item">
+							<h3>Точность</h3>
+							<p>91%</p>
+						</div>
+						<img src="img/line.svg">
+						<div class="result-item">
+							<h3>Затраченое время</h3>
+							<p>0:34</p>
+						</div>
+					</div>
+				</div>
+				<div class="column-2">
+					<div class="text text-share" id="textExample">
+						<h2>
+							Поделиться
+						</h2>
+						<div class="network">
+							<img src="img/facebook.png" alt="facebook">
+							<img src="img/inst.png" alt="inst">
+							<img src="img/vk.png" alt="vk">
+							<img src="img/telegram.png" alt="telegram">
+						</div>
+					</div>
+					<a href="#" class="btn">
+						Повторить попытку
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="devider"></div>
+	<section class="user-stats">
+		<div class="container">
+			<h1>Статистика пользователя</h1>
+			<div class="user-stats-content">
+				<div>
+					<div class="text user-stats-item">
+						<div class="your-result">
+							<div class="result-item stats-item">
+								<h3>Слов в минуту</h3>
+								<p>65</p>
+							</div>
+							<img src="img/line.svg">
+							<div class="result-item stats-item">
+								<h3>Точность</h3>
+								<p>79</p>
+							</div>
+							<img src="img/line.svg">
+							<div class="result-item stats-item">
+								<h3>Кол-во проходов</h3>
+								<p>122</p>
+							</div>
+						</div>
+					</div>
+					<div class="text user-stats-graph-1">
+						
+					</div>
+				</div>
+				<div>
+					<div class="text user-stats-graph-2">
+						
+					</div>
+					<div class="text user-stats-item-2">
+						<p class="num" >12/7/2020</p>
+						<p class="title">Присоединился</p>	
+					</div>
+					<div class="text user-stats-item-2">
+						<p class="num" >42%</p>
+						<p class="title">Наибольшая точность</p>	
+					</div>
+					<div class="text user-stats-item-2">
+						<p class="num" >96</p>
+						<p class="title">Наибольшая скорость</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="devider"></div>
+	<footer class="footer" id="footer">
+		<div class="container">
+			<div class="footer-content">
+				<a href="" class="footer-text">@dimitriskidis</a>&nbsp;x&nbsp;<a href="" class="footer-text">@dinalupsha</a>
+			</div>
+		</div>
+	</footer>
+
+
+
+	<div id="myModal">
+	  <span id="myModal__close" class="close">ₓ</span>
+	</div>
+	<div id="myOverlay"></div>
+
+
+
+		<script src="js/jquery-3.6.0.min.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>
