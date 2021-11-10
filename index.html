@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8" />
-	<title>Клавиатурный тренажер</title>
+	<title>TYPO — клавиатурный тренажер</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" >
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,28 +16,28 @@
 			<div class="nav">
 				<div class="select">
 					<a href="#" class="arrow">
-						<img src="img/arrow.svg" alt="arrow">
+						<img src="img/arrow.svg" alt="arrow" id="arrow-change">
 					</a>
-					<a href="#" class="menu">
+					<a href="#" id="menu">
 						Русский
 					</a>
 				</div>
 				<div class="logotype">
-					<a href="#" class="logo">
+					<a href="#" class="logo" id="name">
 						Typo
 					</a>
 				</div>
 				<div class="controlers" >
-					<div class="switch-control" id="switch-control" style="position: relative;">
+					<div class="switch-control" id="switch-control-language" style="position: relative;">
             			<img src="img/en.png" alt="" id="ru" style="position: absolute;">
             			<img src="img/ru.png" alt="" id="en" style="position: absolute;" class="hidden">
-           			 	<div id="circle">
+           			 	<div id="circle-language">
            			 	</div>
         			</div>
-        			<div class="switch-control" id="switch-control" style="position: relative;">
-            			<img src="img/day.svg" alt="" id="day" style="position: absolute;">
-            			<img src="img/night.svg" alt="" id="night" style="position: absolute;" class="hidden">
-           			 	<div id="circle">
+        			<div class="switch-control" id="switch-control-theme" style="position: relative;">
+            			<img src="img/day.png" alt="" id="night" style="position: absolute;">
+            			<img src="img/night.png" alt="" id="day" style="position: absolute;" class="">
+           			 	<div id="circle-theme">
            			 	</div>
            			</div>
         		</div>
@@ -49,7 +49,7 @@
 		<div class="container">
 			<!-- Text -->
 			<!-- <div class="text error"> -->
-			<div class="text" id="textExample">
+			<div id="text" id="textExample">
 				<p class="line line-1">
 					<span class="done">
 					 It is a long established fact that a reader will be
@@ -71,7 +71,7 @@
 		
 			<!-- Keyboard-ru -->
 			<div class="keyboard-wrapper">
-				<div class="keyboard">
+				<div class="keyboard" id="keyboard">
 					<div class="triggers">
 						<svg width="22" height="22" class="trigger" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path fill-rule="evenodd" clip-rule="evenodd" d="M5.04601 14.7032C4.96632 14.7009 4.88195 14.7227 4.81477 14.7657C4.74758 14.8087 4.69602 14.8735 4.66477 14.947C4.47649 15.3923 3.83665 16.4774 3.55853 17.497C3.41947 18.0071 3.34837 18.5282 3.55853 19.0032C3.76869 19.4782 4.29057 19.7923 4.98977 19.8344H5.02727C5.76009 19.8118 6.30695 19.5149 6.52727 19.0344C6.74759 18.554 6.66399 18.0235 6.51477 17.5094C6.36555 16.9954 6.12961 16.4758 5.90853 16.0219C5.68745 15.568 5.47807 15.1688 5.40853 14.9719C5.38197 14.8969 5.32962 14.8251 5.26478 14.7782C5.19993 14.7313 5.12572 14.7055 5.04602 14.7032L5.04601 14.7032ZM5.02726 16.047C5.0796 16.1524 5.13429 16.2587 5.18976 16.372C5.4046 16.8134 5.621 17.304 5.746 17.7345C5.871 18.1649 5.87803 18.5235 5.796 18.7032C5.71475 18.8806 5.56866 19.0142 5.021 19.0345C4.51476 19.0009 4.37256 18.8657 4.28976 18.6782C4.20616 18.4884 4.21085 18.129 4.32726 17.7032C4.47413 17.1642 4.77102 16.5649 5.02726 16.047V16.047Z" fill="#B9C2C7"></path>
@@ -161,7 +161,7 @@
 
 			<!-- Keyboard-en -->
 			<div class="keyboard-wrapper">
-				<div class="keyboard" >
+				<div class="keyboard" id="keyboard">
 					<div class="triggers">
 						<svg width="22" height="22" class="trigger" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path fill-rule="evenodd" clip-rule="evenodd" d="M5.04601 14.7032C4.96632 14.7009 4.88195 14.7227 4.81477 14.7657C4.74758 14.8087 4.69602 14.8735 4.66477 14.947C4.47649 15.3923 3.83665 16.4774 3.55853 17.497C3.41947 18.0071 3.34837 18.5282 3.55853 19.0032C3.76869 19.4782 4.29057 19.7923 4.98977 19.8344H5.02727C5.76009 19.8118 6.30695 19.5149 6.52727 19.0344C6.74759 18.554 6.66399 18.0235 6.51477 17.5094C6.36555 16.9954 6.12961 16.4758 5.90853 16.0219C5.68745 15.568 5.47807 15.1688 5.40853 14.9719C5.38197 14.8969 5.32962 14.8251 5.26478 14.7782C5.19993 14.7313 5.12572 14.7055 5.04602 14.7032L5.04601 14.7032ZM5.02726 16.047C5.0796 16.1524 5.13429 16.2587 5.18976 16.372C5.4046 16.8134 5.621 17.304 5.746 17.7345C5.871 18.1649 5.87803 18.5235 5.796 18.7032C5.71475 18.8806 5.56866 19.0142 5.021 19.0345C4.51476 19.0009 4.37256 18.8657 4.28976 18.6782C4.20616 18.4884 4.21085 18.129 4.32726 17.7032C4.47413 17.1642 4.77102 16.5649 5.02726 16.047V16.047Z" fill="#B9C2C7"></path>
@@ -250,25 +250,25 @@
 	<div class="devider"></div>
 	<section class="results" id="results">
 		<div class="container">
-			<div class="text text-result" id="textExample">
+			<div class="text-result" id="text" >
 				<p class="line line-1">
 					 It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
 				</p>
 			</div>
 			<div class="line-2">
-				<div class="text text-your-result" id="textExample">
+				<div id="text" class="text-your-result" >
 					<h2>Результаты</h2>
 					<div class="your-result">
 						<div class="result-item">
 							<h3>Слов в минуту</h3>
 							<p>65</p>
 						</div>
-						<img src="img/line.svg">
+						<img src="img/line.svg" id="svg-line-1" id="svg-lines">
 						<div class="result-item">
 							<h3>Точность</h3>
 							<p>91%</p>
 						</div>
-						<img src="img/line.svg">
+						<img src="img/line.svg" id="svg-line-2" id="svg-lines">
 						<div class="result-item">
 							<h3>Затраченое время</h3>
 							<p>0:34</p>
@@ -276,7 +276,7 @@
 					</div>
 				</div>
 				<div class="column-2">
-					<div class="text text-share" id="textExample">
+					<div id="text" class="text-share" >
 						<h2>
 							Поделиться
 						</h2>
@@ -300,41 +300,41 @@
 			<h1>Статистика пользователя</h1>
 			<div class="user-stats-content">
 				<div>
-					<div class="text user-stats-item">
+					<div class="user-stats-item" id="text">
 						<div class="your-result">
 							<div class="result-item stats-item">
 								<h3>Слов в минуту</h3>
 								<p>65</p>
 							</div>
-							<img src="img/line.svg">
+							<img src="img/smaller-line.svg" id="svg-line-3">
 							<div class="result-item stats-item">
 								<h3>Точность</h3>
 								<p>79</p>
 							</div>
-							<img src="img/line.svg">
+							<img src="img/smaller-line.svg" id="svg-line-4">
 							<div class="result-item stats-item">
 								<h3>Кол-во проходов</h3>
 								<p>122</p>
 							</div>
 						</div>
 					</div>
-					<div class="text user-stats-graph-1">
+					<div class="user-stats-graph-1" id="text">
 						
 					</div>
 				</div>
-				<div>
-					<div class="text user-stats-graph-2">
+				<div class="default">
+					<div class="user-stats-graph-2" id="text">
 						
 					</div>
-					<div class="text user-stats-item-2">
+					<div class="user-stats-item-2" id="text">
 						<p class="num" >12/7/2020</p>
 						<p class="title">Присоединился</p>	
 					</div>
-					<div class="text user-stats-item-2">
+					<div class="user-stats-item-2" id="text">
 						<p class="num" >42%</p>
 						<p class="title">Наибольшая точность</p>	
 					</div>
-					<div class="text user-stats-item-2">
+					<div class="user-stats-item-2" id="text">
 						<p class="num" >96</p>
 						<p class="title">Наибольшая скорость</p>
 					</div>
@@ -346,7 +346,7 @@
 	<footer class="footer" id="footer">
 		<div class="container">
 			<div class="footer-content">
-				<a href="" class="footer-text">@dimitriskidis</a>&nbsp;x&nbsp;<a href="" class="footer-text">@dinalupsha</a>
+				<a href="" class="footer-text">@dimitriskidis</a>&nbsp;&nbsp;x&nbsp;&nbsp;<a href="" class="footer-text">@dinalupsha</a>
 			</div>
 		</div>
 	</footer>
