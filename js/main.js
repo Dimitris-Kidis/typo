@@ -45,6 +45,15 @@ switchControlTheme.addEventListener('click', () => {
         theSun.classList.add('hidden');
         theMoon.classList.remove('hidden');
 
+        document.getElementById('letter_backspace-1').style.backgroundColor  = '#4E4E4E';
+        document.getElementById('letter_space-1').style.backgroundColor  = '#4E4E4E';
+        document.getElementById('letter_tab-1').style.backgroundColor  = '#4E4E4E';
+        document.getElementById('letter_capslock-1').style.backgroundColor  = '#4E4E4E';
+        document.getElementById('letter_enter-1').style.backgroundColor  = '#4E4E4E';
+        document.getElementById('letter_shift-1-1').style.backgroundColor  = '#4E4E4E';
+        document.getElementById('letter_shift-2-1').style.backgroundColor  = '#4E4E4E';
+        document.getElementById('letter_alt-1').style.backgroundColor  = '#4E4E4E';
+
         document.getElementById('switch-control-theme').style.backgroundColor = '#4E4E4E';
         document.getElementById('switch-control-theme').style.border = '1px solid #FFFFFF';
         document.getElementById('switch-control-language').style.border = '1px solid #FFFFFF';
@@ -80,9 +89,18 @@ switchControlTheme.addEventListener('click', () => {
       for (let i = 0; i < document.querySelectorAll('.footer-text').length; i++) {
         document.querySelectorAll('.footer-text')[i].style.color = '#FFFFFF';
       }
-      themeFlag = true;
-      console.log(themeFlag);
-
+      themeFlag = false;
+      if ( keyboardHighlighted === true ) {
+        for(let i = 0; i < keyboardRu.childNodes.length; i++) {
+          for(let j = 0; j < 14; j++) {
+            try {
+              keyboardRu.children[i].children[j].style.backgroundColor = document.querySelector('body').style.backgroundColor;
+            } catch (error) {
+              break;
+            }
+          }
+        }
+      }
     } else {
         switchCircleTheme.style.transform = "translate(5px, 5px)";
         times++;
@@ -98,6 +116,14 @@ switchControlTheme.addEventListener('click', () => {
         document.querySelector('#menu').style.color = '#4E4E4E';
         document.querySelector('#arrow-change').setAttribute('src','img/arrow.svg');
 
+        document.getElementById('letter_backspace-1').style.backgroundColor  = '#FFFFFF';
+        document.getElementById('letter_space-1').style.backgroundColor  = '#FFFFFF';
+        document.getElementById('letter_tab-1').style.backgroundColor  = '#FFFFFF';
+        document.getElementById('letter_capslock-1').style.backgroundColor  = '#FFFFFF';
+        document.getElementById('letter_enter-1').style.backgroundColor  = '#FFFFFF';
+        document.getElementById('letter_shift-1-1').style.backgroundColor  = '#FFFFFF';
+        document.getElementById('letter_shift-2-1').style.backgroundColor  = '#FFFFFF';
+        document.getElementById('letter_alt-1').style.backgroundColor  = '#FFFFFF';
 
         document.getElementById('svg-line-1').setAttribute('src','img/line.svg');
         document.getElementById('svg-line-2').setAttribute('src','img/line.svg');
@@ -116,6 +142,7 @@ switchControlTheme.addEventListener('click', () => {
       document.querySelector('body').style.backgroundColor = '#ffffff';
 
 
+
       for (let i = 0; i < document.querySelectorAll('#text').length; i++) {
         document.querySelectorAll('#text')[i].style.border = '1px solid #4E4E4E';
       }
@@ -124,10 +151,20 @@ switchControlTheme.addEventListener('click', () => {
       for (let i = 0; i < document.querySelectorAll('.footer-text').length; i++) {
         document.querySelectorAll('.footer-text')[i].style.color = '#4E4E4E';
       }
-      themeFlag = false;
-      console.log(themeFlag);
-    }
-})
+      themeFlag = true;
+
+      if ( keyboardHighlighted === true) {
+        for(let i = 0; i < keyboardRu.childNodes.length; i++) {
+          for(let j = 0; j < 14; j++) {
+            try {
+              keyboardRu.children[i].children[j].style.backgroundColor = document.querySelector('body').style.backgroundColor;
+            } catch (error) {
+              break;
+            }
+          }
+        }  
+      }
+}})
 
 
 
@@ -144,6 +181,8 @@ const handRu = document.getElementById('hand-ru');
 const handRuCross = document.getElementById('cross-3');
 
 let crossOne = 0, crossTwo = 0, crossThree = 0;
+
+let keyboardHighlighted = false;
 
 const keyboardRu = document.getElementById('keyboard-ru');
 
@@ -204,23 +243,38 @@ bucketRu.addEventListener('click', () => {
     keyboardRu.children[3].children[9].style.backgroundColor = '#8B89DF';
     keyboardRu.children[3].children[10].style.backgroundColor = '#C181F3';
 
-console.log(keyboardRu.childNodes[0].childNodes);
+    keyboardHighlighted = false;
 
   } else {
     bucketRuCross.style.display = 'none';
     crossOne++;
 
-    for(let i = 0; i < keyboardRu.childNodes.length; i++) {
-      for(let j = 0; j < 14; j++) {
-        try {
-          keyboardRu.children[i].children[j].style.backgroundColor = '#FFFFFF';
-        } catch (error) {
-          break;
+
+      for(let i = 0; i < keyboardRu.childNodes.length; i++) {
+        for(let j = 0; j < 14; j++) {
+          try {
+            keyboardRu.children[i].children[j].style.backgroundColor = document.querySelector('body').style.backgroundColor;
+          } catch (error) {
+            break;
+          }
         }
-      }
     }
+    keyboardHighlighted = true;
+    // } else if (themeFlag === false ) {
+    //   for(let i = 0; i < keyboardRu.childNodes.length; i++) {
+    //     for(let j = 0; j < 14; j++) {
+    //       try {
+    //         keyboardRu.children[i].children[j].style.backgroundColor = '#4E4E4E';
+    //       } catch (error) {
+    //         break;
+    //       }
+    //     }
+    //   }
+    //   keyboardHighlighted = true;
+    // }
   }
 })
+
 
 keyboardRuIcon.addEventListener('click', () => {
   if (crossTwo % 2 === 0) {
