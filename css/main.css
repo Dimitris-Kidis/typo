@@ -163,6 +163,10 @@ h3 {
   display: none;
 }
 
+.visibility {
+  visibility: hidden;
+}
+
 #ru {
   transform: translate(24px, 5px);
 }

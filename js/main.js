@@ -81,6 +81,7 @@ switchControlTheme.addEventListener('click', () => {
         document.querySelectorAll('.footer-text')[i].style.color = '#FFFFFF';
       }
       themeFlag = true;
+      console.log(themeFlag);
 
     } else {
         switchCircleTheme.style.transform = "translate(5px, 5px)";
@@ -124,6 +125,7 @@ switchControlTheme.addEventListener('click', () => {
         document.querySelectorAll('.footer-text')[i].style.color = '#4E4E4E';
       }
       themeFlag = false;
+      console.log(themeFlag);
     }
 })
 
@@ -135,7 +137,7 @@ switchControlTheme.addEventListener('click', () => {
 const bucketRu = document.getElementById('bucket-ru');
 const bucketRuCross = document.getElementById('cross-1');
 
-const keyboardRu = document.getElementById('keyboard-ru');
+const keyboardRuIcon = document.getElementById('keyboard-icon-ru');
 const keyboardRuCross = document.getElementById('cross-2');
 
 const handRu = document.getElementById('hand-ru');
@@ -143,23 +145,96 @@ const handRuCross = document.getElementById('cross-3');
 
 let crossOne = 0, crossTwo = 0, crossThree = 0;
 
+const keyboardRu = document.getElementById('keyboard-ru');
+
 bucketRu.addEventListener('click', () => {
   if (crossOne % 2 === 0) {
     bucketRuCross.style.display = 'block';
     crossOne++;
+
+    keyboardRu.children[0].children[0].style.backgroundColor = '#C181F3';
+    keyboardRu.children[0].children[1].style.backgroundColor = '#C181F3';
+    keyboardRu.children[0].children[2].style.backgroundColor = '#8B89DF';
+    keyboardRu.children[0].children[3].style.backgroundColor = '#72FF66';
+    keyboardRu.children[0].children[4].style.backgroundColor = '#FFB966';
+    keyboardRu.children[0].children[5].style.backgroundColor = '#FFB966';
+    keyboardRu.children[0].children[6].style.backgroundColor = '#FFF066';
+    keyboardRu.children[0].children[7].style.backgroundColor = '#FFF066';
+    keyboardRu.children[0].children[8].style.backgroundColor = '#72FF66';
+    keyboardRu.children[0].children[9].style.backgroundColor = '#8B89DF';
+    keyboardRu.children[0].children[10].style.backgroundColor = '#C181F3';
+    keyboardRu.children[0].children[11].style.backgroundColor = '#C181F3';
+    keyboardRu.children[0].children[12].style.backgroundColor = '#C181F3';
+
+    keyboardRu.children[1].children[1].style.backgroundColor = '#C181F3';
+    keyboardRu.children[1].children[2].style.backgroundColor = '#8B89DF';
+    keyboardRu.children[1].children[3].style.backgroundColor = '#72FF66';
+    keyboardRu.children[1].children[4].style.backgroundColor = '#FFB966';
+    keyboardRu.children[1].children[5].style.backgroundColor = '#FFB966';
+    keyboardRu.children[1].children[6].style.backgroundColor = '#FFF066';
+    keyboardRu.children[1].children[7].style.backgroundColor = '#FFF066';
+    keyboardRu.children[1].children[8].style.backgroundColor = '#72FF66';
+    keyboardRu.children[1].children[9].style.backgroundColor = '#8B89DF';
+    keyboardRu.children[1].children[10].style.backgroundColor = '#C181F3';
+    keyboardRu.children[1].children[11].style.backgroundColor = '#C181F3';
+    keyboardRu.children[1].children[12].style.backgroundColor = '#C181F3';
+    keyboardRu.children[1].children[13].style.backgroundColor = '#C181F3';
+
+    keyboardRu.children[2].children[1].style.backgroundColor = '#C181F3';
+    keyboardRu.children[2].children[2].style.backgroundColor = '#8B89DF';
+    keyboardRu.children[2].children[3].style.backgroundColor = '#72FF66';
+    keyboardRu.children[2].children[4].style.backgroundColor = '#FFB966';
+    keyboardRu.children[2].children[5].style.backgroundColor = '#FFB966';
+    keyboardRu.children[2].children[6].style.backgroundColor = '#FFF066';
+    keyboardRu.children[2].children[7].style.backgroundColor = '#FFF066';
+    keyboardRu.children[2].children[8].style.backgroundColor = '#72FF66';
+    keyboardRu.children[2].children[9].style.backgroundColor = '#8B89DF';
+    keyboardRu.children[2].children[10].style.backgroundColor = '#C181F3';
+    keyboardRu.children[2].children[11].style.backgroundColor = '#C181F3';
+
+
+    keyboardRu.children[3].children[1].style.backgroundColor = '#C181F3';
+    keyboardRu.children[3].children[2].style.backgroundColor = '#8B89DF';
+    keyboardRu.children[3].children[3].style.backgroundColor = '#72FF66';
+    keyboardRu.children[3].children[4].style.backgroundColor = '#FFB966';
+    keyboardRu.children[3].children[5].style.backgroundColor = '#FFB966';
+    keyboardRu.children[3].children[6].style.backgroundColor = '#FFF066';
+    keyboardRu.children[3].children[7].style.backgroundColor = '#FFF066';
+    keyboardRu.children[3].children[8].style.backgroundColor = '#72FF66';
+    keyboardRu.children[3].children[9].style.backgroundColor = '#8B89DF';
+    keyboardRu.children[3].children[10].style.backgroundColor = '#C181F3';
+
+console.log(keyboardRu.childNodes[0].childNodes);
+
   } else {
     bucketRuCross.style.display = 'none';
     crossOne++;
+
+    for(let i = 0; i < keyboardRu.childNodes.length; i++) {
+      for(let j = 0; j < 14; j++) {
+        try {
+          keyboardRu.children[i].children[j].style.backgroundColor = '#FFFFFF';
+        } catch (error) {
+          break;
+        }
+      }
+    }
   }
 })
 
-keyboardRu.addEventListener('click', () => {
+keyboardRuIcon.addEventListener('click', () => {
   if (crossTwo % 2 === 0) {
     keyboardRuCross.style.display = 'none';
+    keyboardRu.classList.add('visibility');
     crossTwo++;
+
+
   } else {
     keyboardRuCross.style.display = 'block';
+    keyboardRu.classList.remove('visibility');
     crossTwo++;
+
+  
   }
 })
 
