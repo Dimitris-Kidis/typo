@@ -197,7 +197,7 @@ h3 {
   margin-left: 10px;
 }
 .devider {
-  border-top: 1px solid rgba(0, 0, 0, 0.13);
+  border-top: 1px solid #c4c4c4;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 .content {
@@ -265,10 +265,13 @@ h3 {
   justify-content: flex-end;
   margin-bottom: 3px;
   margin-right: 2px;
+  cursor: pointer;
+  transition: all 0.8s ease-in;
 }
 .trigger {
   margin-left: 7px;
 }
+
 /* .trigger:last-child {
   margin: 0;
 } */
@@ -391,6 +394,11 @@ sup {
   display: block;
   box-shadow: 2px 2px 7px rgb(0 0 0 / 14%);
 }
+
+.btn:hover {
+  background-color: #63ac6a;
+}
+
 .your-result {
   display: flex;
   align-items: center;

@@ -126,3 +126,49 @@ switchControlTheme.addEventListener('click', () => {
       themeFlag = false;
     }
 })
+
+
+
+
+// ENABLING AND DISABLING THE BUTTONS
+
+const bucketRu = document.getElementById('bucket-ru');
+const bucketRuCross = document.getElementById('cross-1');
+
+const keyboardRu = document.getElementById('keyboard-ru');
+const keyboardRuCross = document.getElementById('cross-2');
+
+const handRu = document.getElementById('hand-ru');
+const handRuCross = document.getElementById('cross-3');
+
+let crossOne = 0, crossTwo = 0, crossThree = 0;
+
+bucketRu.addEventListener('click', () => {
+  if (crossOne % 2 === 0) {
+    bucketRuCross.style.display = 'block';
+    crossOne++;
+  } else {
+    bucketRuCross.style.display = 'none';
+    crossOne++;
+  }
+})
+
+keyboardRu.addEventListener('click', () => {
+  if (crossTwo % 2 === 0) {
+    keyboardRuCross.style.display = 'none';
+    crossTwo++;
+  } else {
+    keyboardRuCross.style.display = 'block';
+    crossTwo++;
+  }
+})
+
+handRu.addEventListener('click', () => {
+  if (crossThree % 2 === 0) {
+    handRuCross.style.display = 'block';
+    crossThree++;
+  } else {
+    handRuCross.style.display = 'none';
+    crossThree++;
+  }
+})
