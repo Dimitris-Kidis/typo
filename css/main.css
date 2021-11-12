@@ -208,6 +208,16 @@ h3 {
   padding-top: 50px;
   padding-bottom: 80px;
 }
+
+#text-box {
+  border: 1px solid #4e4e4e;
+  box-shadow: 2px 2px 7px rgb(0 0 0 / 14%);
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 23px;
+  height: 100px;
+}
+
 #text {
   border: 1px solid #4e4e4e;
   box-shadow: 2px 2px 7px rgb(0 0 0 / 14%);

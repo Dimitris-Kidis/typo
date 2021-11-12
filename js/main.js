@@ -197,8 +197,8 @@ bucketRu.addEventListener('click', () => {
     keyboardRu.children[0].children[3].style.backgroundColor = '#72FF66';
     keyboardRu.children[0].children[4].style.backgroundColor = '#FFB966';
     keyboardRu.children[0].children[5].style.backgroundColor = '#FFB966';
-    keyboardRu.children[0].children[6].style.backgroundColor = '#FFF066';
-    keyboardRu.children[0].children[7].style.backgroundColor = '#FFF066';
+    keyboardRu.children[0].children[6].style.backgroundColor = '#FFDB1E';
+    keyboardRu.children[0].children[7].style.backgroundColor = '#FFDB1E';
     keyboardRu.children[0].children[8].style.backgroundColor = '#72FF66';
     keyboardRu.children[0].children[9].style.backgroundColor = '#8B89DF';
     keyboardRu.children[0].children[10].style.backgroundColor = '#C181F3';
@@ -210,8 +210,8 @@ bucketRu.addEventListener('click', () => {
     keyboardRu.children[1].children[3].style.backgroundColor = '#72FF66';
     keyboardRu.children[1].children[4].style.backgroundColor = '#FFB966';
     keyboardRu.children[1].children[5].style.backgroundColor = '#FFB966';
-    keyboardRu.children[1].children[6].style.backgroundColor = '#FFF066';
-    keyboardRu.children[1].children[7].style.backgroundColor = '#FFF066';
+    keyboardRu.children[1].children[6].style.backgroundColor = '#FFDB1E';
+    keyboardRu.children[1].children[7].style.backgroundColor = '#FFDB1E';
     keyboardRu.children[1].children[8].style.backgroundColor = '#72FF66';
     keyboardRu.children[1].children[9].style.backgroundColor = '#8B89DF';
     keyboardRu.children[1].children[10].style.backgroundColor = '#C181F3';
@@ -224,8 +224,8 @@ bucketRu.addEventListener('click', () => {
     keyboardRu.children[2].children[3].style.backgroundColor = '#72FF66';
     keyboardRu.children[2].children[4].style.backgroundColor = '#FFB966';
     keyboardRu.children[2].children[5].style.backgroundColor = '#FFB966';
-    keyboardRu.children[2].children[6].style.backgroundColor = '#FFF066';
-    keyboardRu.children[2].children[7].style.backgroundColor = '#FFF066';
+    keyboardRu.children[2].children[6].style.backgroundColor = '#FFDB1E';
+    keyboardRu.children[2].children[7].style.backgroundColor = '#FFDB1E';
     keyboardRu.children[2].children[8].style.backgroundColor = '#72FF66';
     keyboardRu.children[2].children[9].style.backgroundColor = '#8B89DF';
     keyboardRu.children[2].children[10].style.backgroundColor = '#C181F3';
@@ -237,8 +237,8 @@ bucketRu.addEventListener('click', () => {
     keyboardRu.children[3].children[3].style.backgroundColor = '#72FF66';
     keyboardRu.children[3].children[4].style.backgroundColor = '#FFB966';
     keyboardRu.children[3].children[5].style.backgroundColor = '#FFB966';
-    keyboardRu.children[3].children[6].style.backgroundColor = '#FFF066';
-    keyboardRu.children[3].children[7].style.backgroundColor = '#FFF066';
+    keyboardRu.children[3].children[6].style.backgroundColor = '#FFDB1E';
+    keyboardRu.children[3].children[7].style.backgroundColor = '#FFDB1E';
     keyboardRu.children[3].children[8].style.backgroundColor = '#72FF66';
     keyboardRu.children[3].children[9].style.backgroundColor = '#8B89DF';
     keyboardRu.children[3].children[10].style.backgroundColor = '#C181F3';
@@ -260,18 +260,6 @@ bucketRu.addEventListener('click', () => {
         }
     }
     keyboardHighlighted = true;
-    // } else if (themeFlag === false ) {
-    //   for(let i = 0; i < keyboardRu.childNodes.length; i++) {
-    //     for(let j = 0; j < 14; j++) {
-    //       try {
-    //         keyboardRu.children[i].children[j].style.backgroundColor = '#4E4E4E';
-    //       } catch (error) {
-    //         break;
-    //       }
-    //     }
-    //   }
-    //   keyboardHighlighted = true;
-    // }
   }
 })
 
@@ -301,3 +289,6 @@ handRu.addEventListener('click', () => {
     crossThree++;
   }
 })
+
+
+// 
