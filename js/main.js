@@ -54,6 +54,9 @@ switchControlTheme.addEventListener('click', () => {
         document.getElementById('letter_shift-2-1').style.backgroundColor  = '#4E4E4E';
         document.getElementById('letter_alt-1').style.backgroundColor  = '#4E4E4E';
 
+        textBox.style.border = '1px solid #FFFFFF';
+
+
         document.getElementById('switch-control-theme').style.backgroundColor = '#4E4E4E';
         document.getElementById('switch-control-theme').style.border = '1px solid #FFFFFF';
         document.getElementById('switch-control-language').style.border = '1px solid #FFFFFF';
@@ -116,6 +119,8 @@ switchControlTheme.addEventListener('click', () => {
         document.querySelector('#menu').style.color = '#4E4E4E';
         document.querySelector('#arrow-change').setAttribute('src','img/arrow.svg');
 
+
+        textBox.style.border = '1px solid #4e4e4e';
         document.getElementById('letter_backspace-1').style.backgroundColor  = '#FFFFFF';
         document.getElementById('letter_space-1').style.backgroundColor  = '#FFFFFF';
         document.getElementById('letter_tab-1').style.backgroundColor  = '#FFFFFF';
@@ -291,4 +296,138 @@ handRu.addEventListener('click', () => {
 })
 
 
-// 
+// WORKING WITH THE TEXTBOX
+
+
+//1. Берем букву из текстбокса
+//2. Берем букву из инпута
+//3. Сравнием:
+// - (1) если они совпадают, то поинтер++, обе буквы становятся зелеными НО
+//      - если они правлиьные, но букву стирают, то поинтер--, а некстлеттер
+//                                               убираем зеленый цвет
+// - (2) если они не совпадают, то поинтер++, но обе буквы красные
+//
+//
+//
+//
+
+
+
+const textBox = document.getElementById('text-box');
+const progressBar = document.getElementById('input-progress');
+//mainInput
+let pointer = 0;
+// let extraTextBox = textBox;
+// const checked = document.getElementById('checked');
+// const wrong = document.getElementById('wrong');
+
+
+tmp = textBox.innerText;
+const wordLength = textBox.innerText.length;
+console.log(tmp);
+textBox.innerText = '';
+tmp.split('').forEach(character => {
+  const characterSpan = document.createElement('span');
+  characterSpan.innerText = character;
+  textBox.appendChild(characterSpan);
+  mainInput.value = null;
+})
+
+
+
+
+mainInput.addEventListener('input', () => {
+
+const arrayQuote = textBox.querySelectorAll('span');
+const arrayValue = mainInput.value.split('');
+
+let correct = true;
+  arrayQuote.forEach((characterSpan, index) => {
+    const character = arrayValue[index]
+    if (character == null) {
+      characterSpan.classList.remove('correct');
+      characterSpan.classList.remove('incorrect');
+      // mainInput.style.borderBottom = '1px solid #a9a9a9';
+      // textBox.style.border = '1px solid #4e4e4e';
+      correct = false;
+    } else if (character === characterSpan.innerText) {
+      characterSpan.classList.add('correct');
+      characterSpan.classList.remove('incorrect');
+      // mainInput.style.borderBottom = '1px solid #a9a9a9';
+      // textBox.style.border = '1px solid #4e4e4e';
+    } else if (character !== characterSpan.innerText) {
+      characterSpan.classList.remove('correct');
+      characterSpan.classList.add('incorrect');
+      // mainInput.style.borderBottom = '1px solid red';
+      // textBox.style.border = '1px solid red';
+
+      correct = false;
+    }
+  })
+
+
+  progressBar.style.width = `${Math.floor((mainInput.value.length/wordLength)*100)}%`;
+  // progressBar.style.width =
+  
+
+  if (mainInput.value.length === wordLength) {
+    console.log(textBox.children.length, wordLength, "DA");
+    mainInput.setAttribute('readonly', 'readonly');
+  }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// if (mainInput.value[mainInput.value.length - 1] == textBox.innerHTML[pointer]) {
+//   // console.log('privet', textBox.innerHTML[pointer], pointer, mainInput.value.length);
+
+//   // textBox.innerHTML = textBox.innerHTML.substring(0, pointer) + `<span style="color: green;">${textBox.innerHTML[pointer]}</span>` + textBox.innerHTML.substring(pointer + 1);
+
+//   // console.log(textBox.innerHTML);
+
+//   // pointer=pointer+36;
+//   console.log("checked");
+//   checked.innerHTML += textBox.innerHTML.substring(0, 1);
+//   textBox.innerHTML = textBox.innerHTML.substring(1);
+//   console.log(checked.innerText, checked.innerHTML.length);
+// } else {
+//   mainInput.style.borderBottom = '1px solid red';
+//   textBox.style.border = '1px solid red';
+// }
+
+
+// if ( (checked.innerHTML.length) > mainInput.value.length-1 ) {
+//   mainInput.style.borderBottom = '1px solid #a9a9a9';
+//   document.getElementById('text-box').style.border = '1px solid #4e4e4e';
+//   console.log('proshlo', checked.innerHTML, textBox.innerHTML);
+//   console.log('vot', checked.innerHTML.substring(checked.innerHTML));
+//   textBox.innerHTML = checked.innerHTML.substring(checked.innerHTML.length-1) + textBox.innerHTML;
+//   checked.innerHTML = checked.innerHTML.substring(0, checked.innerHTML.length);
+//   // checked.innerHTML = 
+//   // checked.innerHTML = checked.innerHTML.substring(0, checked.innerHTML.length-2);
+  
+//   // console.log(textBox.innerHTML.substring(0, pointer),textBox.innerHTML[pointer], textBox.innerHTML.substring(pointer + 1));
+//   // textBox.innerHTML = extraTextBox.innerHTML.substring(0, 3) + textBox.innerHTML[pointer] + textBox.innerHTML.substring(pointer + 1);
+// }
