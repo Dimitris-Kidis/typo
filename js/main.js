@@ -691,10 +691,10 @@ function highlight (param) {
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
       break;
     case '.':
-      document.getElementById('letter_.').classList.add('highlighted');
+      document.getElementById('letter_dot').classList.add('highlighted');
       break;
     case ',':
-      document.getElementById('letter_.').classList.add('highlighted');
+      document.getElementById('letter_dot').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
       break;
     case ' ':
@@ -776,7 +776,7 @@ let correct = 0;
     }
   })
 
-  for(let i = textBox.childNodes.length-1; i > 0; i--) {
+  for(let i = textBox.childNodes.length-1; i >= 0; i--) {
       if (textBox.children[i].classList.contains('correct')) {
         mainInput.style.borderBottom = '1px solid #5ee26b';
         textBox.style.border = '1px solid #5ee26b';
