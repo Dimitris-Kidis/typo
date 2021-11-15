@@ -721,12 +721,15 @@ function highlight (param) {
 
 
 const controlers = document.getElementById('controlers');
+const textType = document.getElementById('select');
 
 mainInput.addEventListener('input', () => {
 
   if ( mainInput.value.length === 1 ) {
     controlers.classList.remove('visible');
     controlers.classList.add('invisible');
+    textType.classList.remove('visible');
+    textType.classList.add('invisible');
   }
 
 if (handRuAct) {
@@ -809,6 +812,8 @@ let correct = 0;
     mainInput.setAttribute('readonly', 'readonly');
     controlers.classList.remove('invisible');
     controlers.classList.add('visible');
+    textType.classList.remove('invisible');
+    textType.classList.add('visible');
   }
 
 })
