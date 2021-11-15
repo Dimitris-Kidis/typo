@@ -5,18 +5,18 @@ html {
   height: 100%;
 }
 
-.incorrect-input {
-  border-bottom: 1px solid red;
-}
-.correct-input {
-  border-bottom: 1px solid #a9a9a9;
+.correct-bottom {
+  border-bottom: 1px solid #5ee26b !important;
 }
 
-.incorrect-textbox {
-  border: 1px solid red;
+.incorrect-border {
+  border: red !important;
 }
-.correct-textbox {
-  border: 1px solid #4e4e4e;
+.incorrect-bottom {
+  border-bottom: 1px solid red !important;
+}
+.correct-border {
+  border: 1px solid #5ee26b !important;
 }
 
 body {
@@ -57,21 +57,23 @@ h3 {
 }
 
 #myModal {
-  width: 550px;
-  height: 400px;
+  width: 40%;
+  height: 200px;
   padding: 30px 20px;
   border-radius: 4px;
-  border: 1px solid #3d3d3d;
+  border: 1px solid #4e4e4e;
   background: #fff;
   position: fixed;
-  top: 40px;
-  left: 300px;
   right: 0;
   bottom: 0;
   display: none;
   opacity: 0;
   z-index: 38;
   text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -90%);
 }
 
 #myModal #myModal__close {
@@ -88,13 +90,33 @@ h3 {
 #myOverlay {
   z-index: 37;
   position: fixed;
-  background: rgb(184 184 184 / 30%);
+  background: rgb(184 184 184 / 20%);
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
   cursor: pointer;
   display: none;
+}
+
+.languages {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.prog-languages {
+  display: flex;
+  justify-content: space-around;
+}
+
+.languages a {
+  color: #3d3d3d;
+  font-size: 25px;
+}
+.prog-languages a {
+  color: #3d3d3d;
+  font-size: 25px;
 }
 
 .header {
@@ -180,6 +202,10 @@ h3 {
 
 .visibility {
   visibility: hidden;
+}
+
+.highlighted {
+  background-color: #ffa !important;
 }
 
 #ru {
@@ -285,7 +311,7 @@ h3 {
   width: 680px;
   height: 10px;
   margin: auto;
-  border: 1px solid rgba(0, 0, 0, 0.13);
+  border: 1px solid transparent;
   border-radius: 5px;
   box-shadow: 2px 2px 7px rgb(0 0 0 / 14%);
   margin-bottom: 30px;
@@ -538,9 +564,19 @@ sup {
 }
 
 .correct {
-  color: greenyellow;
+  color: #5ee26b;
 }
 
 .incorrect {
   color: red;
+}
+
+.hand {
+  width: 105px;
+  height: 129px;
+  position: absolute;
+}
+
+#big-finger-right-gray {
+  transform: translate(300px, 180px);
 }

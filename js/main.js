@@ -7,12 +7,12 @@ $(function () {
     $('#myOverlay').fadeIn(297, function(){
       $('#myModal') 
       .css('display', 'block')
-      .animate({opacity: 1}, 198);
+      .animate({opacity: 1}, 140);
     });
   });
 
   $('#myModal__close, #myOverlay').click( function(){
-  $('#myModal').animate({opacity: 0}, 198, function(){
+  $('#myModal').animate({opacity: 0}, 140, function(){
       $(this).css('display', 'none');
       $('#myOverlay').fadeOut(297);
     });
@@ -285,16 +285,41 @@ keyboardRuIcon.addEventListener('click', () => {
   }
 })
 
+let handRuAct = false; let tempNext;
+
 handRu.addEventListener('click', () => {
   if (crossThree % 2 === 0) {
     handRuCross.style.display = 'block';
     crossThree++;
+    handRuAct = true;
+
+    for(let i = 0; i < textBox.childNodes.length; i++) {
+        try {
+          if (!textBox.children[i].classList.contains('correct') && !textBox.children[i].classList.contains('incorrect')) {
+            tempNext = textBox.innerText[i];
+            highlight(tempNext);
+            break;
+          }
+        } catch (error) {
+          break;
+        }
+    }
+
   } else {
     handRuCross.style.display = 'none';
     crossThree++;
+    handRuAct = false;
+    for(let i = 0; i < 5; i++) {
+      for(let j = 0; j < 15; j++) {
+        try {
+          keyboardRu.children[i].children[j].classList.remove('highlighted');
+        } catch (error) {
+          break;
+        }
+      }
+    }
   }
 })
-
 
 // WORKING WITH THE TEXTBOX
 
@@ -334,51 +359,460 @@ tmp.split('').forEach(character => {
 })
 
 
+function highlight (param) {
+  switch (param) {
+    case 'ё':
+      // document.getElementById('big-finger-right-gray').classList.remove('hidden');
+      document.getElementById('letter_ё').classList.add('highlighted');
+      break;
+    case 'Ë':
+      document.getElementById('letter_ё').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case '1':
+      document.getElementById('letter_1').classList.add('highlighted');
+      break;
+    case '!':
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('letter_1').classList.add('highlighted');
+      break;
+      break;
+    case '2':
+      document.getElementById('letter_2').classList.add('highlighted');
+      break;
+    case '"':
+      document.getElementById('letter_2').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case '3':
+      document.getElementById('letter_3').classList.add('highlighted');
+      break;
+    case '№':
+      document.getElementById('letter_3').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case '4':
+      document.getElementById('letter_4').classList.add('highlighted');
+      break;
+    case ';':
+      document.getElementById('letter_4').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case '5':
+      document.getElementById('letter_5').classList.add('highlighted');
+      break;
+    case '%':
+      document.getElementById('letter_5').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case '6':
+      document.getElementById('letter_6').classList.add('highlighted');
+      break;
+    case ':':
+      document.getElementById('letter_6').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case '7':
+      document.getElementById('letter_7').classList.add('highlighted');
+      break;
+    case '?':
+      document.getElementById('letter_7').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case '8':
+      document.getElementById('letter_8').classList.add('highlighted');
+      break;
+    case '*':
+      document.getElementById('letter_8').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case '9':
+      document.getElementById('letter_9').classList.add('highlighted');
+      break;
+    case '(':
+      document.getElementById('letter_9').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case '0':
+      document.getElementById('letter_0').classList.add('highlighted');
+      break;
+    case ')':
+      document.getElementById('letter_0').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case '-':
+      document.getElementById('letter_minus').classList.add('highlighted');
+      break;
+    case '_':
+      document.getElementById('letter_minus').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case '=':
+      document.getElementById('letter_plus').classList.add('highlighted');
+      break;
+    case '+':
+      document.getElementById('letter_plus').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+
+
+    case 'й':
+      document.getElementById('letter_й').classList.add('highlighted');
+      break;
+    case 'Й':
+      document.getElementById('letter_й').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'ц':
+      document.getElementById('letter_ц').classList.add('highlighted');
+      break;
+    case 'Ц':
+      document.getElementById('letter_ц').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'у':
+      document.getElementById('letter_у').classList.add('highlighted');
+      break;
+    case 'У':
+      document.getElementById('letter_у').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'к':
+      document.getElementById('letter_к').classList.add('highlighted');
+      break;
+    case 'К':
+      document.getElementById('letter_к').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'е':
+      document.getElementById('letter_е').classList.add('highlighted');
+      break;
+    case 'Е':
+      document.getElementById('letter_е').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'н':
+      document.getElementById('letter_н').classList.add('highlighted');
+      break;
+    case 'Н':
+      document.getElementById('letter_н').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'г':
+      document.getElementById('letter_г').classList.add('highlighted');
+      break;
+    case 'Г':
+      document.getElementById('letter_г').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'ш':
+      document.getElementById('letter_ш').classList.add('highlighted');
+      break;
+    case 'Ш':
+      document.getElementById('letter_ш').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'щ':
+      document.getElementById('letter_щ').classList.add('highlighted');
+      break;
+    case 'Щ':
+      document.getElementById('letter_щ').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'з':
+      document.getElementById('letter_з').classList.add('highlighted');
+      break;
+    case 'З':
+      document.getElementById('letter_з').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'х':
+      document.getElementById('letter_х').classList.add('highlighted');
+      break;
+    case 'Х':
+      document.getElementById('letter_х').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'ъ':
+      document.getElementById('letter_ъ').classList.add('highlighted');
+      break;
+    case 'Ъ':
+      document.getElementById('letter_ъ').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case '\\':
+      document.getElementById('letter_slash').classList.add('highlighted');
+      break;
+    case '/':
+      document.getElementById('letter_slash').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'ф':
+      document.getElementById('letter_ф').classList.add('highlighted');
+      break;
+    case 'Ф':
+      document.getElementById('letter_ф').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'ы':
+      document.getElementById('letter_ы').classList.add('highlighted');
+      break;
+    case 'Ы':
+      document.getElementById('letter_ы').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'в':
+      document.getElementById('letter_в').classList.add('highlighted');
+      break;
+    case 'В':
+      document.getElementById('letter_в').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'а':
+      document.getElementById('letter_а').classList.add('highlighted');
+      break;
+    case 'А':
+      document.getElementById('letter_а').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'п':
+      document.getElementById('letter_п').classList.add('highlighted');
+      break;
+    case 'П':
+      document.getElementById('letter_п').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'р':
+      document.getElementById('letter_р').classList.add('highlighted');
+      break;
+    case 'Р':
+      document.getElementById('letter_р').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'о':
+      document.getElementById('letter_о').classList.add('highlighted');
+      break;
+    case 'О':
+      document.getElementById('letter_о').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'л':
+      document.getElementById('letter_л').classList.add('highlighted');
+      break;
+    case 'Л':
+      document.getElementById('letter_л').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'д':
+      document.getElementById('letter_д').classList.add('highlighted');
+      break;
+    case 'Д':
+      document.getElementById('letter_д').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'ж':
+      document.getElementById('letter_ж').classList.add('highlighted');
+      break;
+    case 'Ж':
+      document.getElementById('letter_ж').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'э':
+      document.getElementById('letter_э').classList.add('highlighted');
+      break;
+    case 'Э':
+      document.getElementById('letter_э').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'я':
+      document.getElementById('letter_я').classList.add('highlighted');
+      break;
+    case 'Я':
+      document.getElementById('letter_я').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'ч':
+      document.getElementById('letter_ч').classList.add('highlighted');
+      break;
+    case 'Ч':
+      document.getElementById('letter_ч').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'с':
+      document.getElementById('letter_с').classList.add('highlighted');
+      break;
+    case 'С':
+      document.getElementById('letter_с').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'м':
+      document.getElementById('letter_м').classList.add('highlighted');
+      break;
+    case 'М':
+      document.getElementById('letter_м').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'и':
+      document.getElementById('letter_и').classList.add('highlighted');
+      break;
+    case 'И':
+      document.getElementById('letter_и').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'т':
+      document.getElementById('letter_т').classList.add('highlighted');
+      break;
+    case 'Т':
+      document.getElementById('letter_т').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'ь':
+      document.getElementById('letter_ь').classList.add('highlighted');
+      break;
+    case 'Ь':
+      document.getElementById('letter_ь').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'б':
+      document.getElementById('letter_б').classList.add('highlighted');
+      break;
+    case 'Б':
+      document.getElementById('letter_б').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case 'ю':
+      document.getElementById('letter_ю').classList.add('highlighted');
+      break;
+    case 'Ю':
+      document.getElementById('letter_ю').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case '.':
+      document.getElementById('letter_.').classList.add('highlighted');
+      break;
+    case ',':
+      document.getElementById('letter_.').classList.add('highlighted');
+      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      break;
+    case ' ':
+    document.getElementById('letter_space-1').classList.add('highlighted');
+    break;
+
+
+    default:
+      break;
+  }
+
+
+ 
+
+
+
+
+
+} 
+
 
 
 mainInput.addEventListener('input', () => {
 
+if (handRuAct) {
+  let nextLetter = textBox.innerText[mainInput.value.length];
+
+  let currentLetter = textBox.innerText[mainInput.value.length-1];
+
+  for(let i = 0; i < 5; i++) {
+    for(let j = 0; j < 15; j++) {
+      try {
+        keyboardRu.children[i].children[j].classList.remove('highlighted');
+      } catch (error) {
+        break;
+      }
+    }
+  }
+
+  highlight(nextLetter);
+
+} else {
+
+}
+
+
+
+  
+
+
+
 const arrayQuote = textBox.querySelectorAll('span');
 const arrayValue = mainInput.value.split('');
 
-let correct = true;
+let correct = 0;
   arrayQuote.forEach((characterSpan, index) => {
     const character = arrayValue[index]
     if (character == null) {
       characterSpan.classList.remove('correct');
       characterSpan.classList.remove('incorrect');
-      // mainInput.style.borderBottom = '1px solid #a9a9a9';
-      // textBox.style.border = '1px solid #4e4e4e';
-      correct = false;
+
+
+      correct = 0;
     } else if (character === characterSpan.innerText) {
       characterSpan.classList.add('correct');
       characterSpan.classList.remove('incorrect');
-      // mainInput.style.borderBottom = '1px solid #a9a9a9';
-      // textBox.style.border = '1px solid #4e4e4e';
+     
+
+
+
+      correct = 1
     } else if (character !== characterSpan.innerText) {
       characterSpan.classList.remove('correct');
       characterSpan.classList.add('incorrect');
-      // mainInput.style.borderBottom = '1px solid red';
-      // textBox.style.border = '1px solid red';
 
-      correct = false;
+
+
+      correct = 2;
     }
   })
+  if (correct == 0) {
+    NEUTRAL();
+  } else if (correct == 1) {
+    CORRECT();
+  } else {
+    WRONG();
+  }
 
 
   progressBar.style.width = `${Math.floor((mainInput.value.length/wordLength)*100)}%`;
   // progressBar.style.width =
   
 
-  if (mainInput.value.length === wordLength) {
+  if (mainInput.value.length >= wordLength) {
     console.log(textBox.children.length, wordLength, "DA");
     mainInput.setAttribute('readonly', 'readonly');
   }
+
 })
 
 
 
-
+function CORRECT () {
+  mainInput.classList.remove('incorrect-border');
+  textBox.classList.remove('incorrect-bottom');
+  mainInput.classList.add('correct-bottom');
+  textBox.classList.add('correct-border');
+  console.log('zdrasite');
+}
+function WRONG () {
+  mainInput.classList.remove('correct-border');
+  textBox.classList.remove('correct-bottom');
+  mainInput.classList.add('incorrect-border');
+  textBox.classList.add('incorrect-bottom');
+}
+function NEUTRAL () {
+  mainInput.classList.remove('incorrect-border');
+  textBox.classList.remove('incorrect-bottom');
+  mainInput.classList.remove('correct-border');
+  textBox.classList.remove('correct-bottom');
+}
 
 
 
