@@ -712,6 +712,28 @@ function highlight (param) {
 
 } 
 
+function CORRECT () {
+  mainInput.classList.remove('incorrect-border');
+  textBox.classList.remove('incorrect-bottom');
+  mainInput.classList.add('correct-bottom');
+  textBox.classList.add('correct-border');
+  console.log('zdrasite');
+}
+function WRONG () {
+  mainInput.classList.remove('correct-border');
+  textBox.classList.remove('correct-bottom');
+  mainInput.classList.add('incorrect-border');
+  textBox.classList.add('incorrect-bottom');
+}
+function NEUTRAL () {
+  mainInput.classList.remove('incorrect-border');
+  textBox.classList.remove('incorrect-bottom');
+  mainInput.classList.remove('correct-border');
+  textBox.classList.remove('correct-bottom');
+}
+
+
+
 
 
 mainInput.addEventListener('input', () => {
@@ -753,36 +775,42 @@ let correct = 0;
       characterSpan.classList.remove('correct');
       characterSpan.classList.remove('incorrect');
 
-
-      correct = 0;
     } else if (character === characterSpan.innerText) {
-      characterSpan.classList.add('correct');
       characterSpan.classList.remove('incorrect');
-     
+      characterSpan.classList.add('correct');
 
-
-
-      correct = 1
     } else if (character !== characterSpan.innerText) {
       characterSpan.classList.remove('correct');
       characterSpan.classList.add('incorrect');
-
-
-
-      correct = 2;
     }
   })
-  if (correct == 0) {
-    NEUTRAL();
-  } else if (correct == 1) {
-    CORRECT();
-  } else {
-    WRONG();
+
+  for(let i = textBox.childNodes.length-1; i > 0; i--) {
+      if (textBox.children[i].classList.contains('correct')) {
+        mainInput.style.borderBottom = '1px solid #5ee26b';
+        textBox.style.border = '1px solid #5ee26b';
+        break;
+      } else if ( textBox.children[i].classList.contains('incorrect') ) {
+        mainInput.style.borderBottom = '1px solid red';
+        textBox.style.border = '1px solid red';
+        break;
+      } else if ( mainInput.value.length == '' ) {
+        mainInput.style.borderBottom = '1px solid #a9a9a9';
+        textBox.style.border = '1px solid #4e4e4e';
+        break;
+      } else if ( mainInput.value.length == 1 && (textBox.innerText[0] == mainInput.value[0]) ) {
+        console.log('pr');
+        mainInput.style.borderBottom = '1px solid #5ee26b';
+        textBox.style.border = '1px solid #5ee26b';
+        break;
+      } else {
+        mainInput.style.borderBottom = '1px solid red';
+        textBox.style.border = '1px solid red';
+      }
   }
 
 
   progressBar.style.width = `${Math.floor((mainInput.value.length/wordLength)*100)}%`;
-  // progressBar.style.width =
   
 
   if (mainInput.value.length >= wordLength) {
@@ -791,28 +819,6 @@ let correct = 0;
   }
 
 })
-
-
-
-function CORRECT () {
-  mainInput.classList.remove('incorrect-border');
-  textBox.classList.remove('incorrect-bottom');
-  mainInput.classList.add('correct-bottom');
-  textBox.classList.add('correct-border');
-  console.log('zdrasite');
-}
-function WRONG () {
-  mainInput.classList.remove('correct-border');
-  textBox.classList.remove('correct-bottom');
-  mainInput.classList.add('incorrect-border');
-  textBox.classList.add('incorrect-bottom');
-}
-function NEUTRAL () {
-  mainInput.classList.remove('incorrect-border');
-  textBox.classList.remove('incorrect-bottom');
-  mainInput.classList.remove('correct-border');
-  textBox.classList.remove('correct-bottom');
-}
 
 
 
