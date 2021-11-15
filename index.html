@@ -27,7 +27,7 @@
 						Typo
 					</a>
 				</div>
-				<div class="controlers" >
+				<div class="controlers visible" id="controlers" >
 					<div class="switch-control" id="switch-control-language" style="position: relative;">
             			<img src="img/en.png" alt="" id="ru" style="position: absolute;">
             			<img src="img/ru.png" alt="" id="en" style="position: absolute;" class="hidden">
@@ -49,9 +49,8 @@
 		<div class="container">
 			<!-- Text -->
 			<!-- <div class="text error"> -->
-			<div id="text-box" id="textExample" >
-				<!-- <span id="checked" style="color: greenyellow;"></span><span id="wrong" style="color: red;"></span><span id="main-text">Слово ipsum dolor sit amet consectetur adipisicing elit. Quo sint architecto tempore pariatur soluta. Aliquid harum quod nam dignissimos porro? Magnam ullam, maiores laudantium corrupti perspiciatis atque accusantium asperiores at Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus fugit fugiat dolore veritatis dicta corporis provident neque repellat, culpa est laboriosam vitae cupiditate Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam, iste aspernatur. Omnis quidem, eos facere molestias nulla debitis dolorum qui id temporibus?</span> -->
-				1!2"43% тоËчки \ зрения банальной эрудиции + продолжение» — это достаточно знаменитая фраза, которая является пародией на излишнюю насыщенность терминами научной лексики. Точное происхождение фразы неизвестно, однако можно точно сказать, что ей больше нескольких десятилетий и она была известна еще на закате Советского Союза.
+			<div id="text-box" id="textExample"class="unselectable">
+				Съешь ещё этих мягких французских булок, да выпей же чаю.
 			</div>
 			<!-- // Text  -->
 			<!-- Input field -->
@@ -61,7 +60,7 @@
 				<!-- <input
 					id="input" type="text" readonly class="input-line"/> -->
 					<div class="input-line">
-						<input style="width: 2%"
+						<input style="width: 0.2%"
 					id="input-progress" type="text" readonly class="input-progress"/>
 					</div>
 			</form>
@@ -162,7 +161,7 @@
 
 			<!-- Keyboard-en -->
 			<div class="keyboard-wrapper">
-				<div class="keyboard" id="keyboard">
+				<div class="keyboard hidden" id="keyboard">
 					<div class="triggers">
 						<svg width="22" height="22" class="trigger" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path fill-rule="evenodd" clip-rule="evenodd" d="M5.04601 14.7032C4.96632 14.7009 4.88195 14.7227 4.81477 14.7657C4.74758 14.8087 4.69602 14.8735 4.66477 14.947C4.47649 15.3923 3.83665 16.4774 3.55853 17.497C3.41947 18.0071 3.34837 18.5282 3.55853 19.0032C3.76869 19.4782 4.29057 19.7923 4.98977 19.8344H5.02727C5.76009 19.8118 6.30695 19.5149 6.52727 19.0344C6.74759 18.554 6.66399 18.0235 6.51477 17.5094C6.36555 16.9954 6.12961 16.4758 5.90853 16.0219C5.68745 15.568 5.47807 15.1688 5.40853 14.9719C5.38197 14.8969 5.32962 14.8251 5.26478 14.7782C5.19993 14.7313 5.12572 14.7055 5.04602 14.7032L5.04601 14.7032ZM5.02726 16.047C5.0796 16.1524 5.13429 16.2587 5.18976 16.372C5.4046 16.8134 5.621 17.304 5.746 17.7345C5.871 18.1649 5.87803 18.5235 5.796 18.7032C5.71475 18.8806 5.56866 19.0142 5.021 19.0345C4.51476 19.0009 4.37256 18.8657 4.28976 18.6782C4.20616 18.4884 4.21085 18.129 4.32726 17.7032C4.47413 17.1642 4.77102 16.5649 5.02726 16.047V16.047Z" fill="#B9C2C7"></path>

@@ -339,6 +339,9 @@ handRu.addEventListener('click', () => {
 
 
 const textBox = document.getElementById('text-box');
+textBox.innerText = textBox.innerText.replace(/ё/g, 'е');
+textBox.innerText = textBox.innerText.replace(/Ë/g, 'Е');
+
 const progressBar = document.getElementById('input-progress');
 //mainInput
 let pointer = 0;
@@ -712,31 +715,19 @@ function highlight (param) {
 
 } 
 
-function CORRECT () {
-  mainInput.classList.remove('incorrect-border');
-  textBox.classList.remove('incorrect-bottom');
-  mainInput.classList.add('correct-bottom');
-  textBox.classList.add('correct-border');
-  console.log('zdrasite');
-}
-function WRONG () {
-  mainInput.classList.remove('correct-border');
-  textBox.classList.remove('correct-bottom');
-  mainInput.classList.add('incorrect-border');
-  textBox.classList.add('incorrect-bottom');
-}
-function NEUTRAL () {
-  mainInput.classList.remove('incorrect-border');
-  textBox.classList.remove('incorrect-bottom');
-  mainInput.classList.remove('correct-border');
-  textBox.classList.remove('correct-bottom');
-}
 
 
 
 
+
+const controlers = document.getElementById('controlers');
 
 mainInput.addEventListener('input', () => {
+
+  if ( mainInput.value.length === 1 ) {
+    controlers.classList.remove('visible');
+    controlers.classList.add('invisible');
+  }
 
 if (handRuAct) {
   let nextLetter = textBox.innerText[mainInput.value.length];
@@ -816,6 +807,8 @@ let correct = 0;
   if (mainInput.value.length >= wordLength) {
     console.log(textBox.children.length, wordLength, "DA");
     mainInput.setAttribute('readonly', 'readonly');
+    controlers.classList.remove('invisible');
+    controlers.classList.add('visible');
   }
 
 })

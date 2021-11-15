@@ -192,6 +192,7 @@ h3 {
 
 .highlighted {
   background-color: #ffa !important;
+  color: #4e4e4e;
 }
 
 #ru {
@@ -209,7 +210,7 @@ h3 {
   transform: translate(5px, 5px);
 }
 /* НЕ ТРОГАТЬ!!!!!!!!!!!!!!! */
-/* .visible {
+.visible {
   visibility: visible;
   opacity: 1;
   transition: opacity 2s linear;
@@ -218,8 +219,8 @@ h3 {
 .invisible {
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s 2s, opacity 2s linear;
-} */
+  transition: visibility 0s 2s, opacity 0.35s linear;
+}
 
 .switch-control {
   margin-left: 0px;
@@ -579,4 +580,14 @@ sup {
 }
 .correct-border {
   border: 1px solid #5ee26b !important;
+}
+
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
 }
