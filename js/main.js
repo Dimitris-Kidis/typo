@@ -365,7 +365,6 @@ tmp.split('').forEach(character => {
 function highlight (param) {
   switch (param) {
     case 'ё':
-      // document.getElementById('big-finger-right-gray').classList.remove('hidden');
       document.getElementById('letter_ё').classList.add('highlighted');
       break;
     case 'Ë':
@@ -645,6 +644,7 @@ function highlight (param) {
       document.getElementById('letter_с').classList.add('highlighted');
       break;
     case 'С':
+      // document.getElementById('big-finger-right-gray').classList.remove('hidden');
       document.getElementById('letter_с').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
       break;
@@ -715,6 +715,10 @@ function highlight (param) {
 
 } 
 
+window.onload = () => {
+  mainInput.onpaste = e => e.preventDefault();
+}
+
 
 
 
@@ -755,14 +759,66 @@ if (handRuAct) {
 
 
 
+
+
   
 
 
 
-const arrayQuote = textBox.querySelectorAll('span');
+
+
+
+
+  for(let i = textBox.childNodes.length - 1; i >= 0; i--) {
+      if (textBox.children[i].classList.contains('correct')) {
+        mainInput.style.borderBottom = '1px solid #5ee26b';
+        textBox.style.border = '1px solid #5ee26b';
+        
+        // ask(0);
+
+
+        break;
+      } else if ( textBox.children[i].classList.contains('incorrect') ) {
+        mainInput.style.borderBottom = '1px solid red';
+        textBox.style.border = '1px solid red';
+
+        if ( mainInput.value.length > 1 ) {
+          mainInput.value = oldInput;
+        }
+
+      
+        // mainInput.addEventListener('keydown', e => {
+        //   console.log("красный");
+        //   if ( !(e.key === 'Backspace') ) {
+        //     e.preventDefault();
+        //   }
+        //   e.stopPropagation;
+        // })
+
+        ask(1);
+
+        break;
+      } else if ( mainInput.value.length == '' ) {
+        mainInput.style.borderBottom = '1px solid #a9a9a9';
+        textBox.style.border = '1px solid #4e4e4e';
+        ask(null);
+        break;
+      } else if ( mainInput.value.length == 1 && (textBox.innerText[0] == mainInput.value[0]) ) {
+        console.log('pr');
+        mainInput.style.borderBottom = '1px solid #5ee26b';
+        textBox.style.border = '1px solid #5ee26b';
+        ask(0);
+        break;
+      } else {
+        mainInput.style.borderBottom = '1px solid red';
+        textBox.style.border = '1px solid red';
+        ask(1);
+      }
+  }
+
+  const arrayQuote = textBox.querySelectorAll('span');
 const arrayValue = mainInput.value.split('');
 
-let correct = 0;
   arrayQuote.forEach((characterSpan, index) => {
     const character = arrayValue[index]
     if (character == null) {
@@ -779,30 +835,6 @@ let correct = 0;
     }
   })
 
-  for(let i = textBox.childNodes.length-1; i >= 0; i--) {
-      if (textBox.children[i].classList.contains('correct')) {
-        mainInput.style.borderBottom = '1px solid #5ee26b';
-        textBox.style.border = '1px solid #5ee26b';
-        break;
-      } else if ( textBox.children[i].classList.contains('incorrect') ) {
-        mainInput.style.borderBottom = '1px solid red';
-        textBox.style.border = '1px solid red';
-        break;
-      } else if ( mainInput.value.length == '' ) {
-        mainInput.style.borderBottom = '1px solid #a9a9a9';
-        textBox.style.border = '1px solid #4e4e4e';
-        break;
-      } else if ( mainInput.value.length == 1 && (textBox.innerText[0] == mainInput.value[0]) ) {
-        console.log('pr');
-        mainInput.style.borderBottom = '1px solid #5ee26b';
-        textBox.style.border = '1px solid #5ee26b';
-        break;
-      } else {
-        mainInput.style.borderBottom = '1px solid red';
-        textBox.style.border = '1px solid red';
-      }
-  }
-
 
   progressBar.style.width = `${Math.floor((mainInput.value.length/wordLength)*100)}%`;
   
@@ -815,12 +847,30 @@ let correct = 0;
     textType.classList.remove('invisible');
     textType.classList.add('visible');
   }
-
+  oldInput = mainInput.value;
 })
 
 
 
 
+
+function ask (flag) {
+
+    if ( flag === null ) {
+      
+    } else if ( flag === 0 ) {
+      
+    } else if ( flag === 1 ) {
+      for (let i = 0; i < mainInput.value.length - 1; i++) {
+        mainInput.value[i] = mainInput.value[i];
+      }
+      mainInput.value.length = mainInput.value.length - 1;
+    } else {
+
+    }
+  }
+
+  
 
 
 
