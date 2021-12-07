@@ -741,6 +741,13 @@ const textType = document.getElementById('select');
 
 let oldInput = mainInput.value;
 var mistakes = [];
+var countIncorrect = 0;
+
+
+const localCPM = document.getElementById('local-result-cpm');
+const localAccuracy = document.getElementById('local-result-accuracy');
+const localTime = document.getElementById('local-result-time');
+
 
 mainInput.addEventListener('input', e => {
 
@@ -768,7 +775,7 @@ mainInput.addEventListener('input', e => {
   }
 
 
-let resulting = '';
+
 
 
 const arrayQuote = textBox.querySelectorAll('span');
@@ -856,6 +863,7 @@ oldInput = mainInput.value;
   
 
   if (mainInput.value.length >= wordLength) {
+
     console.log(textBox.children.length, wordLength, "DA");
     mainInput.setAttribute('readonly', 'readonly');
     controlers.classList.remove('invisible');
@@ -872,14 +880,30 @@ oldInput = mainInput.value;
     let uniqueMistakes = [...new Set(mistakes)];
     let resultText = document.getElementById('result-text');
     resultText.innerHTML = textBox.innerHTML;
+
+
     for(let i = 0; i < textBox.childNodes.length; i++) {
       for(let j = 0; j < uniqueMistakes.length; j++) {
         if ( i == uniqueMistakes[j] ) {
           resultText.children[i].classList.add('incorrect');
-          console.log('in');
         }
       }
+
+      if ( resultText.children[i].classList.contains('incorrect') ) {
+        countIncorrect++;
+      }
     }
+
+
+    
+
+
+
+    localCPM.innerHTML = `${(textBox.childNodes.length-countIncorrect)/20}`;
+    localAccuracy.innerHTML = `${Math.round((textBox.childNodes.length-countIncorrect)/textBox.childNodes.length * 100) }%`;
+
+    resultText.innerHTML += `  —  автор`;
+    console.log('count', countIncorrect);
   }
 
   if ( mainInput.value.length === 0 && themeFlag === false ) {

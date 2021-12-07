@@ -56,7 +56,7 @@
 			<!-- Input field -->
 			<form action="" class="form">
 				<input
-					id="input" type="text" class="input-text" placeholder="Поле для ввода текста" value="" autofocus/>
+					id="input" type="text" class="input-text" placeholder="Поле для ввода текста" value="" autofocus >
 				<!-- <input
 					id="input" type="text" readonly class="input-line"/> -->
 					<div class="input-line">
@@ -248,7 +248,7 @@
 		</div>
 	</section>
 	<div class="devider"></div>
-	<section class="results hidden" id="results" >
+	<section class="results" id="results" >
 		<div class="container">
 			<div class="text-result" id="text" >
 				<p class="line line-1" id="result-text">
@@ -260,18 +260,18 @@
 					<h2>Результаты</h2>
 					<div class="your-result">
 						<div class="result-item">
-							<h3>Слов в минуту</h3>
-							<p>65</p>
+							<h3>Знаков в минуту</h3>
+							<p id="local-result-cpm">65</p>
 						</div>
 						<img src="img/line.svg" id="svg-line-1" id="svg-lines">
 						<div class="result-item">
 							<h3>Точность</h3>
-							<p>91%</p>
+							<p id="local-result-accuracy">91%</p>
 						</div>
 						<img src="img/line.svg" id="svg-line-2" id="svg-lines">
 						<div class="result-item">
-							<h3>Затраченое время</h3>
-							<p>0:34</p>
+							<h3>Затраченное время</h3>
+							<p id="local-result-time">0:34</p>
 						</div>
 					</div>
 				</div>
@@ -303,8 +303,8 @@
 					<div class="user-stats-item" id="text">
 						<div class="your-result">
 							<div class="result-item stats-item">
-								<h3>Слов в минуту</h3>
-								<p>65</p>
+								<h3>Знаков в минуту</h3>
+								<p >65</p>
 							</div>
 							<img src="img/smaller-line.svg" id="svg-line-3">
 							<div class="result-item stats-item">
