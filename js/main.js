@@ -727,7 +727,10 @@ window.onload = () => {
 const controlers = document.getElementById('controlers');
 const textType = document.getElementById('select');
 
-mainInput.addEventListener('input', () => {
+let oldInput = mainInput.value;
+
+mainInput.addEventListener('input', e => {
+
 
   if ( mainInput.value.length === 1 ) {
     controlers.classList.remove('visible');
@@ -740,6 +743,7 @@ if (handRuAct) {
   let nextLetter = textBox.innerText[mainInput.value.length];
 
   let currentLetter = textBox.innerText[mainInput.value.length-1];
+
 
   for(let i = 0; i < 5; i++) {
     for(let j = 0; j < 15; j++) {
@@ -758,65 +762,26 @@ if (handRuAct) {
 }
 
 
+for(let i = 1; i < textBox.childNodes.length ; i++)
+  {
+    if ( textBox.children[0].classList.contains('incorrect') && mainInput.value.length === 2 ) {
+      mainInput.value = oldInput;
+      console.log(1);
+      break;
+    }
+    else if ( textBox.children[i].classList.contains('incorrect') && e.data !== null )
+    {
+      mainInput.value = oldInput;
+      console.log(2);
+      console.log(e);
+      // console.log(mainInput.value);
+      break;
+    } else {
 
-
-
-  
-
-
-
-
-
-
-
-  for(let i = textBox.childNodes.length - 1; i >= 0; i--) {
-      if (textBox.children[i].classList.contains('correct')) {
-        mainInput.style.borderBottom = '1px solid #5ee26b';
-        textBox.style.border = '1px solid #5ee26b';
-        
-        // ask(0);
-
-
-        break;
-      } else if ( textBox.children[i].classList.contains('incorrect') ) {
-        mainInput.style.borderBottom = '1px solid red';
-        textBox.style.border = '1px solid red';
-
-        if ( mainInput.value.length > 1 ) {
-          mainInput.value = oldInput;
-        }
-
-      
-        // mainInput.addEventListener('keydown', e => {
-        //   console.log("красный");
-        //   if ( !(e.key === 'Backspace') ) {
-        //     e.preventDefault();
-        //   }
-        //   e.stopPropagation;
-        // })
-
-        ask(1);
-
-        break;
-      } else if ( mainInput.value.length == '' ) {
-        mainInput.style.borderBottom = '1px solid #a9a9a9';
-        textBox.style.border = '1px solid #4e4e4e';
-        ask(null);
-        break;
-      } else if ( mainInput.value.length == 1 && (textBox.innerText[0] == mainInput.value[0]) ) {
-        console.log('pr');
-        mainInput.style.borderBottom = '1px solid #5ee26b';
-        textBox.style.border = '1px solid #5ee26b';
-        ask(0);
-        break;
-      } else {
-        mainInput.style.borderBottom = '1px solid red';
-        textBox.style.border = '1px solid red';
-        ask(1);
-      }
+    }
   }
 
-  const arrayQuote = textBox.querySelectorAll('span');
+const arrayQuote = textBox.querySelectorAll('span');
 const arrayValue = mainInput.value.split('');
 
   arrayQuote.forEach((characterSpan, index) => {
@@ -835,6 +800,54 @@ const arrayValue = mainInput.value.split('');
     }
   })
 
+  
+  
+
+
+  for(let i = textBox.childNodes.length - 1; i >= 0; i--) {
+      if (textBox.children[i].classList.contains('correct')) {
+        mainInput.style.borderBottom = '1px solid #5ee26b';
+        textBox.style.border = '1px solid #5ee26b';
+        
+        // ask(0);
+
+
+
+      } else if ( textBox.children[i].classList.contains('incorrect') ) {
+        mainInput.style.borderBottom = '1px solid red';
+        textBox.style.border = '1px solid red';
+
+
+        // console.log('priv');
+        // mainInput.value = oldInput;
+
+        
+
+      
+        // mainInput.addEventListener('keydown', e => {
+        //   console.log("красный");
+        //   if ( !(e.key === 'Backspace') ) {
+        //     e.preventDefault();
+        //   }
+        //   e.stopPropagation;
+        // })
+      } else if ( mainInput.value.length == '' ) {
+        mainInput.style.borderBottom = '1px solid #a9a9a9';
+        textBox.style.border = '1px solid #4e4e4e';
+      } else if ( mainInput.value.length == 1 && (textBox.innerText[0] == mainInput.value[0]) ) {
+        mainInput.style.borderBottom = '1px solid #5ee26b';
+        textBox.style.border = '1px solid #5ee26b';
+      } else {
+
+        mainInput.style.borderBottom = '1px solid red';
+        textBox.style.border = '1px solid red';
+      }
+  }
+
+ 
+
+oldInput = mainInput.value;
+
 
   progressBar.style.width = `${Math.floor((mainInput.value.length/wordLength)*100)}%`;
   
@@ -847,7 +860,11 @@ const arrayValue = mainInput.value.split('');
     textType.classList.remove('invisible');
     textType.classList.add('visible');
   }
-  oldInput = mainInput.value;
+  // oldInput = mainInput.value;
+
+  if ( mainInput.value.length === 0 && themeFlag === false ) {
+    textBox.style.border = '1px solid white';
+  }
 })
 
 
@@ -864,7 +881,7 @@ function ask (flag) {
       for (let i = 0; i < mainInput.value.length - 1; i++) {
         mainInput.value[i] = mainInput.value[i];
       }
-      mainInput.value.length = mainInput.value.length - 1;
+      // mainInput.value.length = mainInput.value.length - 1;
     } else {
 
     }
