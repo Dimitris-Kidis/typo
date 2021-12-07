@@ -755,33 +755,6 @@ mainInput.addEventListener('input', e => {
   }
 
 
-if (handRuAct) {
-  let nextLetter = textBox.innerText[mainInput.value.length];
-  if ( mainInput.value.length >= 1 && textBox.children[mainInput.value.length-1].classList.contains('incorrect') ){
-    nextLetter = textBox.innerText[mainInput.value.length-1];
-    console.log('hello');
-  } 
-  // else {
-  //   nextLetter = '';
-  //   // nextLetter = textBox.innerText[mainInput.value.length]
-  // }
-
-  for(let i = 0; i < 5; i++) {
-    for(let j = 0; j < 15; j++) {
-      try {
-        keyboardRu.children[i].children[j].classList.remove('highlighted');
-      } catch (error) {
-        break;
-      }
-    }
-  }
-
-  highlight(nextLetter);
-
-} else {
-
-}
-
 
 
 
@@ -804,6 +777,32 @@ const arrayValue = mainInput.value.split('');
     }
   })
 
+  if (handRuAct) {
+    let nextLetter = textBox.innerText[mainInput.value.length];
+    if ( mainInput.value.length >= 1 && textBox.children[mainInput.value.length-1].classList.contains('incorrect') ){
+      nextLetter = textBox.innerText[mainInput.value.length-1];
+      console.log('hello');
+    } 
+    // else {
+    //   nextLetter = '';
+    //   // nextLetter = textBox.innerText[mainInput.value.length]
+    // }
+  
+    for(let i = 0; i < 5; i++) {
+      for(let j = 0; j < 15; j++) {
+        try {
+          keyboardRu.children[i].children[j].classList.remove('highlighted');
+        } catch (error) {
+          break;
+        }
+      }
+    }
+  
+    highlight(nextLetter);
+  
+  } else {
+  
+  }
   
   
 
