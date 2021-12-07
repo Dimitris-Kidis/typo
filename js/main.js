@@ -740,6 +740,7 @@ const controlers = document.getElementById('controlers');
 const textType = document.getElementById('select');
 
 let oldInput = mainInput.value;
+var mistakes = [];
 
 mainInput.addEventListener('input', e => {
 
@@ -767,7 +768,7 @@ mainInput.addEventListener('input', e => {
   }
 
 
-
+let resulting = '';
 
 
 const arrayQuote = textBox.querySelectorAll('span');
@@ -819,36 +820,17 @@ const arrayValue = mainInput.value.split('');
   
   }
   
-  
 
 
   for(let i = textBox.childNodes.length - 1; i >= 0; i--) {
       if (textBox.children[i].classList.contains('correct')) {
         mainInput.style.borderBottom = '1px solid #5ee26b';
         textBox.style.border = '1px solid #5ee26b';
-        
-        // ask(0);
-
-
-
       } else if ( textBox.children[i].classList.contains('incorrect') ) {
-        mainInput.style.borderBottom = '1px solid red';
-        textBox.style.border = '1px solid red';
-
-
-        // console.log('priv');
-        // mainInput.value = oldInput;
-
-        
-
-      
-        // mainInput.addEventListener('keydown', e => {
-        //   console.log("красный");
-        //   if ( !(e.key === 'Backspace') ) {
-        //     e.preventDefault();
-        //   }
-        //   e.stopPropagation;
-        // })
+        mainInput.style.borderBottom = '1px solid #ff0000';
+        textBox.style.border = '1px solid #ff0000';
+        mistakes.push(i);
+        console.log(mistakes);
       } else if ( mainInput.value.length == '' ) {
         mainInput.style.borderBottom = '1px solid #a9a9a9';
         textBox.style.border = '1px solid #4e4e4e';
@@ -862,6 +844,8 @@ const arrayValue = mainInput.value.split('');
         textBox.style.border = '1px solid red';
       }
   }
+
+
 
  
 
@@ -878,80 +862,28 @@ oldInput = mainInput.value;
     controlers.classList.add('visible');
     textType.classList.remove('invisible');
     textType.classList.add('visible');
+
+    function toResults() {
+      $("html, body").animate({ scrollTop: "628px" });
+      document.getElementById('results').classList.remove('hidden');
+
+    }
+    setTimeout(toResults, 2000);
+    let uniqueMistakes = [...new Set(mistakes)];
+    let resultText = document.getElementById('result-text');
+    resultText.innerHTML = textBox.innerHTML;
+    for(let i = 0; i < textBox.childNodes.length; i++) {
+      for(let j = 0; j < uniqueMistakes.length; j++) {
+        if ( i == uniqueMistakes[j] ) {
+          resultText.children[i].classList.add('incorrect');
+          console.log('in');
+        }
+      }
+    }
   }
-  // oldInput = mainInput.value;
 
   if ( mainInput.value.length === 0 && themeFlag === false ) {
     textBox.style.border = '1px solid white';
   }
 })
 
-
-
-
-
-function ask (flag) {
-
-    if ( flag === null ) {
-      
-    } else if ( flag === 0 ) {
-      
-    } else if ( flag === 1 ) {
-      for (let i = 0; i < mainInput.value.length - 1; i++) {
-        mainInput.value[i] = mainInput.value[i];
-      }
-      // mainInput.value.length = mainInput.value.length - 1;
-    } else {
-
-    }
-  }
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// if (mainInput.value[mainInput.value.length - 1] == textBox.innerHTML[pointer]) {
-//   // console.log('privet', textBox.innerHTML[pointer], pointer, mainInput.value.length);
-
-//   // textBox.innerHTML = textBox.innerHTML.substring(0, pointer) + `<span style="color: green;">${textBox.innerHTML[pointer]}</span>` + textBox.innerHTML.substring(pointer + 1);
-
-//   // console.log(textBox.innerHTML);
-
-//   // pointer=pointer+36;
-//   console.log("checked");
-//   checked.innerHTML += textBox.innerHTML.substring(0, 1);
-//   textBox.innerHTML = textBox.innerHTML.substring(1);
-//   console.log(checked.innerText, checked.innerHTML.length);
-// } else {
-//   mainInput.style.borderBottom = '1px solid red';
-//   textBox.style.border = '1px solid red';
-// }
-
-
-// if ( (checked.innerHTML.length) > mainInput.value.length-1 ) {
-//   mainInput.style.borderBottom = '1px solid #a9a9a9';
-//   document.getElementById('text-box').style.border = '1px solid #4e4e4e';
-//   console.log('proshlo', checked.innerHTML, textBox.innerHTML);
-//   console.log('vot', checked.innerHTML.substring(checked.innerHTML));
-//   textBox.innerHTML = checked.innerHTML.substring(checked.innerHTML.length-1) + textBox.innerHTML;
-//   checked.innerHTML = checked.innerHTML.substring(0, checked.innerHTML.length);
-//   // checked.innerHTML = 
-//   // checked.innerHTML = checked.innerHTML.substring(0, checked.innerHTML.length-2);
-  
-//   // console.log(textBox.innerHTML.substring(0, pointer),textBox.innerHTML[pointer], textBox.innerHTML.substring(pointer + 1));
-//   // textBox.innerHTML = extraTextBox.innerHTML.substring(0, 3) + textBox.innerHTML[pointer] + textBox.innerHTML.substring(pointer + 1);
-// }
