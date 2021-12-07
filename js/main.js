@@ -295,7 +295,12 @@ handRu.addEventListener('click', () => {
 
     for(let i = 0; i < textBox.childNodes.length; i++) {
         try {
-          if (!textBox.children[i].classList.contains('correct') && !textBox.children[i].classList.contains('incorrect')) {
+          if ( mainInput.value.length >= 1 && textBox.children[mainInput.value.length-1].classList.contains('incorrect') ){
+            // nextLetter = textBox.innerText[mainInput.value.length-1];
+            highlight('backspace');
+            console.log('hello');
+          
+          } else if (!textBox.children[i].classList.contains('correct') && !textBox.children[i].classList.contains('incorrect')) {
             tempNext = textBox.innerText[i];
             highlight(tempNext);
             break;
@@ -304,6 +309,10 @@ handRu.addEventListener('click', () => {
           break;
         }
     }
+
+    
+
+    
 
   } else {
     handRuCross.style.display = 'none';
@@ -364,6 +373,9 @@ tmp.split('').forEach(character => {
 
 function highlight (param) {
   switch (param) {
+    case 'backspace':
+      document.getElementById('letter_backspace-1').classList.add('highlighted');
+      break;
     case 'ё':
       document.getElementById('letter_ё').classList.add('highlighted');
       break;
@@ -779,10 +791,7 @@ const arrayValue = mainInput.value.split('');
 
   if (handRuAct) {
     let nextLetter = textBox.innerText[mainInput.value.length];
-    if ( mainInput.value.length >= 1 && textBox.children[mainInput.value.length-1].classList.contains('incorrect') ){
-      nextLetter = textBox.innerText[mainInput.value.length-1];
-      console.log('hello');
-    } 
+    
     // else {
     //   nextLetter = '';
     //   // nextLetter = textBox.innerText[mainInput.value.length]
@@ -797,8 +806,14 @@ const arrayValue = mainInput.value.split('');
         }
       }
     }
-  
-    highlight(nextLetter);
+    if ( mainInput.value.length >= 1 && textBox.children[mainInput.value.length-1].classList.contains('incorrect') ){
+      // nextLetter = textBox.innerText[mainInput.value.length-1];
+      highlight('backspace');
+      console.log('hello');
+    } else {
+      highlight(nextLetter);
+    }
+    // highlight(nextLetter);
   
   } else {
   
