@@ -739,6 +739,26 @@ mainInput.addEventListener('input', e => {
     textType.classList.add('invisible');
   }
 
+  for(let i = 1; i < textBox.childNodes.length ; i++)
+  {
+    if ( textBox.children[0].classList.contains('incorrect') && mainInput.value.length === 2 ) {
+      mainInput.value = oldInput;
+      console.log(1);
+      break;
+    }
+    else if ( textBox.children[i].classList.contains('incorrect') && e.data !== null )
+    {
+      mainInput.value = oldInput;
+      console.log(2);
+      console.log(e);
+      // console.log(mainInput.value);
+      break;
+    } else {
+
+    }
+  }
+
+
 if (handRuAct) {
   let nextLetter = textBox.innerText[mainInput.value.length];
 
@@ -762,24 +782,7 @@ if (handRuAct) {
 }
 
 
-for(let i = 1; i < textBox.childNodes.length ; i++)
-  {
-    if ( textBox.children[0].classList.contains('incorrect') && mainInput.value.length === 2 ) {
-      mainInput.value = oldInput;
-      console.log(1);
-      break;
-    }
-    else if ( textBox.children[i].classList.contains('incorrect') && e.data !== null )
-    {
-      mainInput.value = oldInput;
-      console.log(2);
-      console.log(e);
-      // console.log(mainInput.value);
-      break;
-    } else {
 
-    }
-  }
 
 const arrayQuote = textBox.querySelectorAll('span');
 const arrayValue = mainInput.value.split('');
