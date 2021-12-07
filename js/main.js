@@ -743,15 +743,11 @@ mainInput.addEventListener('input', e => {
   {
     if ( textBox.children[0].classList.contains('incorrect') && mainInput.value.length === 2 ) {
       mainInput.value = oldInput;
-      console.log(1);
       break;
     }
     else if ( textBox.children[i].classList.contains('incorrect') && e.data !== null )
     {
       mainInput.value = oldInput;
-      console.log(2);
-      console.log(e);
-      // console.log(mainInput.value);
       break;
     } else {
 
@@ -761,9 +757,14 @@ mainInput.addEventListener('input', e => {
 
 if (handRuAct) {
   let nextLetter = textBox.innerText[mainInput.value.length];
-
-  let currentLetter = textBox.innerText[mainInput.value.length-1];
-
+  if ( mainInput.value.length >= 1 && textBox.children[mainInput.value.length-1].classList.contains('incorrect') ){
+    nextLetter = textBox.innerText[mainInput.value.length-1];
+    console.log('hello');
+  } 
+  // else {
+  //   nextLetter = '';
+  //   // nextLetter = textBox.innerText[mainInput.value.length]
+  // }
 
   for(let i = 0; i < 5; i++) {
     for(let j = 0; j < 15; j++) {
@@ -837,6 +838,7 @@ const arrayValue = mainInput.value.split('');
       } else if ( mainInput.value.length == '' ) {
         mainInput.style.borderBottom = '1px solid #a9a9a9';
         textBox.style.border = '1px solid #4e4e4e';
+        console.log('voti');
       } else if ( mainInput.value.length == 1 && (textBox.innerText[0] == mainInput.value[0]) ) {
         mainInput.style.borderBottom = '1px solid #5ee26b';
         textBox.style.border = '1px solid #5ee26b';
