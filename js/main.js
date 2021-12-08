@@ -1,3 +1,7 @@
+
+document.write(VK.Share.button()); 
+
+
 // MODAL WINDOW
 
 $(function () {
