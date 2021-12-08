@@ -1,7 +1,4 @@
 
-
-
-
 // MODAL WINDOW
 
 $(function () {
@@ -943,8 +940,18 @@ oldInput = mainInput.value;
     console.log('count', countIncorrect);
   }
 
+  document.getElementById('vk_share_button').innerHTML = VK.Share.button({
+    url: 'https://dimitris-kidis.github.io/typo/',
+    title: `Моя скорость печати — ${Math.round((textBox.childNodes.length-countIncorrect)/(seconds/60))} знаков в минуту! Попробуй и ты :)`,
+    image: 'https://ibb.co/0rvcG8f',
+      
+  }, {type: 'custom', text: '<img src="https://upload.wikimedia.org/wikipedia/commons/2/21/VK.com-logo.svg" style="width: 43px" />'});
+
   if ( mainInput.value.length === 0 && themeFlag === false ) {
     textBox.style.border = '1px solid white';
   }
 })
+
+
+
 
