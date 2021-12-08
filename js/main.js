@@ -875,7 +875,7 @@ const arrayValue = mainInput.value.split('');
   }
 
 
-  if ( (new Date() - startTime)/1000 >= 5 ) {
+  if ( (new Date() - startTime)/1000 >= 300 ) {
     timeFlag = true;
   }
  
