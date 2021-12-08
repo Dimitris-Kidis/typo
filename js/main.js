@@ -351,6 +351,8 @@ const textBox = document.getElementById('text-box');
 textBox.innerText = textBox.innerText.replace(/ё/g, 'е');
 textBox.innerText = textBox.innerText.replace(/Ë/g, 'Е');
 
+
+
 const progressBar = document.getElementById('input-progress');
 //mainInput
 let pointer = 0;
@@ -366,6 +368,8 @@ textBox.innerText = '';
 tmp.split('').forEach(character => {
   const characterSpan = document.createElement('span');
   characterSpan.innerText = character;
+  characterSpan.style.whiteSpace = 'break-spaces'; /* Чтобы не потерять пробел в конце строки */
+
   textBox.appendChild(characterSpan);
   mainInput.value = null;
 })
@@ -748,8 +752,23 @@ const localCPM = document.getElementById('local-result-cpm');
 const localAccuracy = document.getElementById('local-result-accuracy');
 const localTime = document.getElementById('local-result-time');
 
+var startTime, endTime;
+let key = false;
+
+function start() {
+  startTime = new Date();
+};
+
+
+
+let timeFlag = false;
 
 mainInput.addEventListener('input', e => {
+
+  if ( key === false ) {
+    start();
+    key = true;
+  }
 
 
   if ( mainInput.value.length === 1 ) {
@@ -774,26 +793,29 @@ mainInput.addEventListener('input', e => {
     }
   }
 
-
+  
 
 
 
 const arrayQuote = textBox.querySelectorAll('span');
 const arrayValue = mainInput.value.split('');
-
   arrayQuote.forEach((characterSpan, index) => {
     const character = arrayValue[index]
     if (character == null) {
       characterSpan.classList.remove('correct');
       characterSpan.classList.remove('incorrect');
 
+
     } else if (character === characterSpan.innerText) {
       characterSpan.classList.remove('incorrect');
       characterSpan.classList.add('correct');
 
+
     } else if (character !== characterSpan.innerText) {
       characterSpan.classList.remove('correct');
       characterSpan.classList.add('incorrect');
+
+
     }
   })
 
@@ -853,7 +875,9 @@ const arrayValue = mainInput.value.split('');
   }
 
 
-
+  if ( (new Date() - startTime)/1000 >= 5 ) {
+    timeFlag = true;
+  }
  
 
 oldInput = mainInput.value;
@@ -862,7 +886,17 @@ oldInput = mainInput.value;
   progressBar.style.width = `${Math.floor((mainInput.value.length/wordLength)*100)}%`;
   
 
-  if (mainInput.value.length >= wordLength) {
+  if (mainInput.value.length >= wordLength || timeFlag === true) {
+
+  endTime = new Date();
+  console.log(endTime, startTime);
+  var timeDiff = endTime - startTime; //in ms
+  // strip the ms
+  timeDiff /= 1000;
+
+  // get seconds 
+  var seconds = Math.round(timeDiff);
+  console.log(seconds + " seconds");
 
     console.log(textBox.children.length, wordLength, "DA");
     mainInput.setAttribute('readonly', 'readonly');
@@ -895,12 +929,11 @@ oldInput = mainInput.value;
     }
 
 
-    
 
 
-
-    localCPM.innerHTML = `${(textBox.childNodes.length-countIncorrect)/20}`;
+    localCPM.innerHTML = `${Math.trunc((textBox.childNodes.length-countIncorrect)/(seconds/60))}`;
     localAccuracy.innerHTML = `${Math.round((textBox.childNodes.length-countIncorrect)/textBox.childNodes.length * 100) }%`;
+    localTime.innerHTML = `${Math.trunc(seconds/60)}:${(seconds%60).toString().padStart(2, "0")}`;
 
     resultText.innerHTML += `  —  автор`;
     console.log('count', countIncorrect);

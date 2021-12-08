@@ -242,8 +242,11 @@ h3 {
   box-shadow: 2px 2px 7px rgb(0 0 0 / 14%);
   border-radius: 5px;
   font-size: 15px;
-  padding: 23px;
+  padding: 27px;
   line-height: 1.4em;
+  /* word-wrap:calc() */
+
+  word-break: break-word;
 }
 
 #text {
