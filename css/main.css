@@ -491,10 +491,13 @@ sup {
 }
 .network {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   justify-content: center;
+  text-align: center;
+  height: 43px;
   margin-top: 13px;
 }
 .user-stats {
@@ -595,4 +598,11 @@ sup {
   -ms-user-select: none;
   user-select: none;
   cursor: default;
+}
+
+#telegram {
+  width: 43px;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-bottom: 4px;
 }

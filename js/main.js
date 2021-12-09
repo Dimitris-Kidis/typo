@@ -1,3 +1,5 @@
+
+
 //Запись первого посещения, хранится в localStorage
 if ( !localStorage.date ) {
   var today;
@@ -977,6 +979,21 @@ oldInput = mainInput.value;
       title: `Моя скорость печати — ${localCPM.innerText} знаков в минуту! Попробуй и ты :)`,
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNjLKVWf8SMTqFL89o58tpWhcPQgNffkU1EupdkSHTctkKQsQohOblZXBvkJDQgUaKy4I&usqp=CAU'
     }, {type: 'custom', text: '<img src="https://upload.wikimedia.org/wikipedia/commons/2/21/VK.com-logo.svg" style="width: 43px" />'});
+
+
+
+
+    const telegram = document.getElementById('telegram');
+    const pageUrl = location.href;
+    const message = `Моя скорость печати — ${localCPM.innerText} знаков в минуту! Попробуй и ты :)`;
+    const telegramApi = `https://t.me/share/url?url=${pageUrl}&text=${message}`;
+
+    telegram.addEventListener('click', () => {
+      window.open(url = telegramApi, target='blank')
+    })
+
+
+
 
     if ( parseInt(localCPM.innerText) > parseInt(localStorage.getItem('fastestCPM')) ) {
       localStorage.setItem('fastestCPM', JSON.stringify(parseInt(localCPM.innerText)));
