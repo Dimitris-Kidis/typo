@@ -929,14 +929,8 @@ oldInput = mainInput.value;
 
   // Время, затраченное на печать (в секундах)
   var seconds = (Math.round(timeDiff * 100) / 100).toFixed(2);
-  console.log('time', seconds);
 
 
-  document.getElementById('vk_share_button').innerHTML = VK.Share.button({
-    url: 'https://dimitris-kidis.github.io/typo/',
-    title: `Моя скорость печати — ${Math.trunc((textBox.childNodes.length-countIncorrect)/(seconds/60))} знаков в минуту! Попробуй и ты :)`,
-    // image: 'https://ibb.co/0rvcG8f'
-  }, {type: 'custom', text: '<img src="https://upload.wikimedia.org/wikipedia/commons/2/21/VK.com-logo.svg" style="width: 43px" />'});
 
     mainInput.setAttribute('readonly', 'readonly');
     controlers.classList.remove('invisible');
@@ -976,6 +970,13 @@ oldInput = mainInput.value;
     localAccuracy.innerHTML = `${Math.round((textBox.childNodes.length-countIncorrect)/textBox.childNodes.length * 100) }%`;
     //Затраченное время
     localTime.innerHTML = `${Math.trunc(seconds/60)}:${((seconds%60).toFixed(1)).toString().padStart(2, "0")}`;
+
+
+    document.getElementById('vk_share_button').innerHTML = VK.Share.button({
+      url: 'https://dimitris-kidis.github.io/typo/',
+      title: `Моя скорость печати — ${localCPM.innerText} знаков в минуту! Попробуй и ты :)`,
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNjLKVWf8SMTqFL89o58tpWhcPQgNffkU1EupdkSHTctkKQsQohOblZXBvkJDQgUaKy4I&usqp=CAU'
+    }, {type: 'custom', text: '<img src="https://upload.wikimedia.org/wikipedia/commons/2/21/VK.com-logo.svg" style="width: 43px" />'});
 
     if ( parseInt(localCPM.innerText) > parseInt(localStorage.getItem('fastestCPM')) ) {
       localStorage.setItem('fastestCPM', JSON.stringify(parseInt(localCPM.innerText)));
