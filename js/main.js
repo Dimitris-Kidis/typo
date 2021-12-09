@@ -1,3 +1,53 @@
+//Запись первого посещения, хранится в localStorage
+if ( !localStorage.date ) {
+  var today;
+  today = new Date();
+  var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
+  localStorage.setItem('date', JSON.stringify(date));
+  document.getElementById('firstDate').innerHTML = `${date}`;
+} else {
+  date = JSON.parse(localStorage.getItem('date'));
+  document.getElementById('firstDate').innerHTML = `${date}`;
+}
+
+var fastestCPM = 0;
+if ( !localStorage.fastestCPM ) {
+  document.getElementById('global-result-cpm').innerHTML = '-';
+  localStorage.setItem('fastestCPM', JSON.stringify(0));
+} else {
+  var globalCPM = document.getElementById('global-result-cpm');
+  globalCPM.innerHTML = `${JSON.parse(localStorage.getItem('fastestCPM'))}`;
+}
+
+var averageAccuracy = 0;
+if ( !localStorage.averageAccuracy ) {
+  document.getElementById('global-result-accuracy').innerHTML = '- %';
+  localStorage.setItem('averageAccuracy', JSON.stringify(0));
+} else {
+  var globalAccuracy = document.getElementById('global-result-accuracy');
+  globalAccuracy.innerHTML = `${JSON.parse(localStorage.getItem('averageAccuracy'))}`;
+}
+
+var textCount = 0;
+if ( !localStorage.textCount ) {
+  document.getElementById('global-result-count').innerHTML = '-';
+  localStorage.setItem('textCount', JSON.stringify(0));
+
+} else {
+  var globalCounter = document.getElementById('global-result-count');
+  globalCounter.innerHTML = `${JSON.parse(localStorage.getItem('textCount'))}`;
+}
+
+var longestText = 0;
+if ( !localStorage.longestText ) {
+  document.getElementById('longest-text').innerHTML = '-';
+  localStorage.setItem('longestText', JSON.stringify(0));
+} else {
+  document.getElementById('longest-text').innerHTML = `${JSON.parse(localStorage.getItem('longestText'))}`;
+}
+
+
+
 
 // MODAL WINDOW
 
@@ -331,22 +381,6 @@ handRu.addEventListener('click', () => {
   }
 })
 
-// WORKING WITH THE TEXTBOX
-
-
-//1. Берем букву из текстбокса
-//2. Берем букву из инпута
-//3. Сравнием:
-// - (1) если они совпадают, то поинтер++, обе буквы становятся зелеными НО
-//      - если они правлиьные, но букву стирают, то поинтер--, а некстлеттер
-//                                               убираем зеленый цвет
-// - (2) если они не совпадают, то поинтер++, но обе буквы красные
-//
-//
-//
-//
-
-
 
 const textBox = document.getElementById('text-box');
 textBox.innerText = textBox.innerText.replace(/ё/g, 'е');
@@ -364,7 +398,6 @@ let pointer = 0;
 
 tmp = textBox.innerText;
 const wordLength = textBox.innerText.length;
-console.log(tmp);
 textBox.innerText = '';
 tmp.split('').forEach(character => {
   const characterSpan = document.createElement('span');
@@ -760,6 +793,7 @@ function start() {
   startTime = new Date();
 };
 
+var check = 0;
 
 
 let timeFlag = false;
@@ -890,22 +924,27 @@ oldInput = mainInput.value;
   if (mainInput.value.length >= wordLength || timeFlag === true) {
 
   endTime = new Date();
-  console.log(endTime, startTime);
-  var timeDiff = endTime - startTime; //in ms
-  // strip the ms
+  var timeDiff = endTime - startTime;
   timeDiff /= 1000;
 
-  // get seconds 
-  var seconds = Math.round(timeDiff);
-  console.log(seconds + " seconds");
+  // Время, затраченное на печать (в секундах)
+  var seconds = (Math.round(timeDiff * 100) / 100).toFixed(2);
+  console.log('time', seconds);
 
-    console.log(textBox.children.length, wordLength, "DA");
+
+  document.getElementById('vk_share_button').innerHTML = VK.Share.button({
+    url: 'https://dimitris-kidis.github.io/typo/',
+    title: `Моя скорость печати — ${Math.trunc((textBox.childNodes.length-countIncorrect)/(seconds/60))} знаков в минуту! Попробуй и ты :)`,
+    image: 'https://ibb.co/0rvcG8f'
+  }, {type: 'custom', text: '<img src="https://upload.wikimedia.org/wikipedia/commons/2/21/VK.com-logo.svg" style="width: 43px" />'});
+
     mainInput.setAttribute('readonly', 'readonly');
     controlers.classList.remove('invisible');
     controlers.classList.add('visible');
     textType.classList.remove('invisible');
     textType.classList.add('visible');
 
+    //Переход к результатам
     function toResults() {
       $("html, body").animate({ scrollTop: "628px" });
       document.getElementById('results').classList.remove('hidden');
@@ -931,21 +970,44 @@ oldInput = mainInput.value;
 
 
 
-
+    //Высчитываем ЗВМ
     localCPM.innerHTML = `${Math.trunc((textBox.childNodes.length-countIncorrect)/(seconds/60))}`;
+    //Подсчет точности
     localAccuracy.innerHTML = `${Math.round((textBox.childNodes.length-countIncorrect)/textBox.childNodes.length * 100) }%`;
-    localTime.innerHTML = `${Math.trunc(seconds/60)}:${(seconds%60).toString().padStart(2, "0")}`;
+    //Затраченное время
+    localTime.innerHTML = `${Math.trunc(seconds/60)}:${((seconds%60).toFixed(1)).toString().padStart(2, "0")}`;
+
+    if ( parseInt(localCPM.innerText) > parseInt(localStorage.getItem('fastestCPM')) ) {
+      localStorage.setItem('fastestCPM', JSON.stringify(parseInt(localCPM.innerText)));
+
+    }
+
+    if ( parseInt(textBox.innerText.length) > parseInt(localStorage.getItem('longestText')) ) {
+      console.log('tuttta');
+      localStorage.setItem('longestText', JSON.stringify(parseInt(textBox.innerText.length)));
+
+    }
+
+
+
+    let tmp2 = parseInt(localStorage.getItem('textCount'));
+    localStorage.setItem('textCount', JSON.stringify(tmp2 + 1));
+
+
+
+
+    let wow;
+    parseInt(JSON.parse(localStorage.getItem('textCount'))) === 1 ? wow = (parseInt(localAccuracy.innerText) + averageAccuracy )/1 : wow = (parseInt(localAccuracy.innerText) + averageAccuracy )/2;
+    localStorage.setItem('averageAccuracy', JSON.stringify(Math.round(wow)));
+
+    
+
+
 
     resultText.innerHTML += `  —  автор`;
-    console.log('count', countIncorrect);
   }
 
-  document.getElementById('vk_share_button').innerHTML = VK.Share.button({
-    url: 'https://dimitris-kidis.github.io/typo/',
-    title: `Моя скорость печати — ${Math.round((textBox.childNodes.length-countIncorrect)/(seconds/60))} знаков в минуту! Попробуй и ты :)`,
-    image: 'https://ibb.co/0rvcG8f',
-      
-  }, {type: 'custom', text: '<img src="https://upload.wikimedia.org/wikipedia/commons/2/21/VK.com-logo.svg" style="width: 43px" />'});
+
 
   if ( mainInput.value.length === 0 && themeFlag === false ) {
     textBox.style.border = '1px solid white';
@@ -955,3 +1017,4 @@ oldInput = mainInput.value;
 
 
 
+averageAccuracy = parseInt(JSON.parse(localStorage.getItem('averageAccuracy')));

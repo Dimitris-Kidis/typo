@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8" />
+	<meta property="og:image" content="https://ibb.co/0rvcG8f" />
 	<title>TYPO — клавиатурный тренажер</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" >
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -9,7 +10,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/main.css" />
 	<script type="text/javascript" src="https://vk.com/js/api/share.js?93" charset="windows-1251"></script>
-	<meta property="og:image" content="https://ibb.co/0rvcG8f" />
+	
 </head>
 <body>
 	<img src="img/TYPO_logo.png" class="hidden" alt="">
@@ -53,7 +54,7 @@
 			<!-- Text -->
 			<!-- <div class="text error"> -->
 			<div id="text-box" id="textExample" class="unselectable">
-				Текстатакиекрасивые
+				Текс
 			</div>
 			<!-- // Text  -->
 			<!-- Input field -->
@@ -308,17 +309,17 @@
 						<div class="your-result">
 							<div class="result-item stats-item">
 								<h3>Знаков в минуту</h3>
-								<p >65</p>
+								<p id="global-result-cpm">-</p>
 							</div>
 							<img src="img/smaller-line.svg" id="svg-line-3">
 							<div class="result-item stats-item">
-								<h3>Точность</h3>
-								<p>79</p>
+								<h3>Средняя точность</h3>
+								<p id="global-result-accuracy">-</p>
 							</div>
 							<img src="img/smaller-line.svg" id="svg-line-4">
 							<div class="result-item stats-item">
-								<h3>Кол-во проходов</h3>
-								<p>122</p>
+								<h3>Написанных текстов</h3>
+								<p id="global-result-count">-</p>
 							</div>
 						</div>
 					</div>
@@ -331,16 +332,16 @@
 						
 					</div>
 					<div class="user-stats-item-2" id="text">
-						<p class="num" >12/7/2020</p>
+						<p class="num" id="firstDate" >12/7/2020</p>
 						<p class="title">Присоединился</p>	
 					</div>
 					<div class="user-stats-item-2" id="text">
-						<p class="num" >42%</p>
-						<p class="title">Наибольшая точность</p>	
+						<p class="num" >QWERTY</p>
+						<p class="title">Раскладка</p>	
 					</div>
 					<div class="user-stats-item-2" id="text">
-						<p class="num" >96</p>
-						<p class="title">Наибольшая скорость</p>
+						<p class="num" id="longest-text" >-</p>
+						<p class="title">Самый длинный текст</p>
 					</div>
 				</div>
 			</div>
