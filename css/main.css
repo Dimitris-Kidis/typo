@@ -517,12 +517,12 @@ sup {
 }
 .user-stats-graph-1 {
   width: 670px;
-  height: 456px;
+  height: 400px;
 }
 .user-stats-graph-2 {
   margin-bottom: 30px;
   width: 270px;
-  height: 306px;
+  height: 250px;
 }
 .user-stats-item-2 {
   width: 270px;
@@ -851,4 +851,73 @@ sup {
   cursor: pointer;
   margin-left: 20px;
   margin-bottom: 4px;
+}
+
+.chart-container {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  justify-items: center;
+}
+
+.graph-name {
+  text-align: center;
+  padding: 8px;
+}
+
+.graph-container {
+  justify-content: center;
+  width: 620px;
+  margin: 0 auto;
+}
+
+.graph-description {
+  font-weight: 300;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  justify-content: space-around;
+  font-size: 12px;
+  vertical-align: middle;
+  align-items: center;
+}
+
+.legend-circle {
+  width: 15px;
+  height: 15px;
+  display: inline-flex;
+  align-items: center;
+  margin-right: 8px;
+  border-radius: 50%;
+  background-color: #5ee26b;
+}
+
+.legend-time {
+  color: #5ee26b;
+  font-weight: 400;
+  border: 1.5px solid #5ee26b;
+  border-radius: 5px;
+  padding: 5px 12px;
+  transition: all 0.3s ease-in;
+}
+
+.legend-time:hover {
+  background-color: #5ee26b;
+  color: white;
+}
+
+.restart {
+  color: red;
+  font-weight: 400;
+  border: 1.5px solid red;
+  border-radius: 5px;
+  padding: 5px 12px;
+  transition: all 0.3s ease-in;
+}
+
+.restart:hover {
+  background-color: red;
+  color: white;
 }

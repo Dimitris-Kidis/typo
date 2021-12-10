@@ -1206,7 +1206,44 @@ oldInput = mainInput.value;
   }
 })
 
-
-
-
 averageAccuracy = parseInt(JSON.parse(localStorage.getItem('averageAccuracy')));
+
+
+
+
+
+const labels = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+];
+const data = {
+  labels: labels,
+  datasets: [{
+    label: 'My First dataset',
+    backgroundColor: 'rgb(0, 231, 71)',
+    borderColor: 'rgb(0, 231, 71)',
+    data: [-20, 10, 5, -26, 20, 30, 45],
+    tension: 0.2
+  }]
+};
+
+const config = {
+  type: 'line',
+  data: data,
+  options: {
+    plugins:{   
+      legend: {
+        display: false
+              },
+           }
+  }
+};
+
+const myChart = new Chart(
+  document.getElementById('myChart'),
+  config
+);

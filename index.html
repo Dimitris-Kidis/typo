@@ -7,7 +7,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" >
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com"> 
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/main.css" />
 	<script type="text/javascript" src="https://vk.com/js/api/share.js?93" charset="windows-1251"></script>
 	
@@ -374,8 +376,17 @@
 							</div>
 						</div>
 					</div>
-					<div class="user-stats-graph-1" id="text">
-						
+					<div class="user-stats-graph-1 chart_container" id="text" style="padding: 5px !important;">
+						<h3 class="graph-name">Динамика роста</h3>
+						<div class="graph-container">
+							<canvas id="myChart"></canvas>
+						</div>
+
+						<div class="graph-description">
+							<div style="display: flex; align-items: center;"><div class="legend-circle">&nbsp;</div><span >Знаков в минуту</span></div>
+							<span class="legend-time">За все время</span>
+							<span class="restart">Обнулить результаты</span>
+						</div>
 					</div>
 				</div>
 				<div class="default">
@@ -426,6 +437,7 @@
 
 
 
+	  	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 		<script src="js/jquery-3.6.0.min.js"></script>
 		<script src="js/main.js"></script>
 	</body>
