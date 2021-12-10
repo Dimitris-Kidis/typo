@@ -909,9 +909,9 @@ sup {
 }
 
 .restart {
-  color: red;
+  color: #ff5454;
   font-weight: 400;
-  border: 1.5px solid red;
+  border: 1.5px solid #ff5454;
   border-radius: 5px;
   padding: 4px 12px;
   transition: all 0.3s ease-in;
@@ -919,6 +919,6 @@ sup {
 }
 
 .restart:hover {
-  background-color: red;
+  background-color: #ff5454;
   color: white;
 }
