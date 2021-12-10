@@ -1098,7 +1098,7 @@ oldInput = mainInput.value;
   
 
   if (mainInput.value.length >= wordLength || timeFlag === true) {
-
+    document.getElementById('devider').classList.remove('hidden');
   endTime = new Date();
   var timeDiff = endTime - startTime;
   timeDiff /= 1000;
@@ -1223,7 +1223,7 @@ const labels = [
 const data = {
   labels: labels,
   datasets: [{
-    label: 'My First dataset',
+    label: ' ',
     backgroundColor: 'rgb(0, 231, 71)',
     borderColor: 'rgb(0, 231, 71)',
     data: [-20, 10, 5, -26, 20, 30, 45],
