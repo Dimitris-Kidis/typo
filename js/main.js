@@ -1208,7 +1208,12 @@ oldInput = mainInput.value;
 
 averageAccuracy = parseInt(JSON.parse(localStorage.getItem('averageAccuracy')));
 
+const restart = document.getElementById('restart');
 
+restart.addEventListener('click', () => {
+  window.localStorage.clear();
+  location.reload();
+})
 
 
 
