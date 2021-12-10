@@ -708,7 +708,119 @@ sup {
 
 /* ТРЕТИЙ РЯД КЛАВИАТУРЫ */
 
+#little-finger-left-purple-4 {
+  transform: translate(106px, 5px);
+  opacity: 55%;
+}
+
+#ring-finger-left-lilac-3 {
+  transform: translate(143px, 5px);
+  opacity: 55%;
+}
+
+#middle-finger-left-green-3 {
+  transform: translate(183px, 5px);
+  opacity: 55%;
+}
+
+#index-finger-orange-5 {
+  transform: translate(223px, 5px);
+  opacity: 55%;
+}
+
+#index-finger-orange-6 {
+  transform: translate(270px, 5px);
+  opacity: 55%;
+}
+
+#index-finger-yellow-5 {
+  transform: translate(350px, 5px);
+  opacity: 55%;
+}
+
+#index-finger-yellow-6 {
+  transform: translate(400px, 5px);
+  opacity: 55%;
+}
+
+#middle-finger-right-green-3 {
+  transform: translate(445px, 5px);
+  opacity: 55%;
+}
+
+#ring-finger-right-lilac-3 {
+  transform: translate(485px, 5px);
+  opacity: 55%;
+}
+
+#little-finger-right-purple-10 {
+  transform: translate(525px, 5px);
+  opacity: 55%;
+}
+
+#little-finger-right-purple-11 {
+  transform: translate(572px, 5px);
+  opacity: 55%;
+}
+
 /* ЧЕТВЕРТЫЙ РЯД КЛАВИАТУРЫ */
+
+#little-finger-left-purple-5 {
+  transform: translate(130px, 10px);
+  opacity: 55%;
+}
+
+#ring-finger-left-lilac-4 {
+  transform: translate(177px, 10px);
+  opacity: 55%;
+}
+
+#middle-finger-left-green-4 {
+  transform: translate(215px, 10px);
+  opacity: 55%;
+}
+
+#index-finger-orange-7 {
+  transform: translate(255px, 10px);
+  opacity: 55%;
+}
+
+#index-finger-orange-8 {
+  transform: translate(302px, 10px);
+  opacity: 55%;
+}
+
+#index-finger-yellow-7 {
+  transform: translate(377px, 10px);
+  opacity: 55%;
+}
+
+#index-finger-yellow-8 {
+  transform: translate(427px, 10px);
+  opacity: 55%;
+}
+
+#middle-finger-right-green-4 {
+  transform: translate(467px, 10px);
+  opacity: 55%;
+}
+
+#ring-finger-right-lilac-4 {
+  transform: translate(507px, 10px);
+  opacity: 55%;
+}
+
+#little-finger-right-purple-12 {
+  transform: translate(553px, 10px);
+  opacity: 55%;
+}
+
+/* ПРОБЕЛ */
+
+#big-finger-right-gray {
+  transform: translate(390px, -20px);
+  opacity: 55%;
+}
 
 .correct-bottom {
   border-bottom: 1px solid #5ee26b !important;

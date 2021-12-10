@@ -708,175 +708,219 @@ function highlight (param) {
 
     case 'ф':
       document.getElementById('letter_ф').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple-4').classList.remove('hidden');
       break;
     case 'Ф':
       document.getElementById('letter_ф').classList.add('highlighted');
-      document.getElementById('letter_shift-1-1').classList.add('highlighted');
-      document.getElementById('little-finger-left-purple').classList.remove('hidden');
+      document.getElementById('little-finger-left-purple-4').classList.remove('hidden');
+      document.getElementById('letter_shift-2-1').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-2').classList.remove('hidden');
       break;
     case 'ы':
       document.getElementById('letter_ы').classList.add('highlighted');
+      document.getElementById('ring-finger-left-lilac-3').classList.remove('hidden');
       break;
     case 'Ы':
       document.getElementById('letter_ы').classList.add('highlighted');
-      document.getElementById('letter_shift-1-1').classList.add('highlighted');
-      document.getElementById('little-finger-left-purple').classList.remove('hidden');
+      document.getElementById('ring-finger-left-lilac-3').classList.remove('hidden');
+      document.getElementById('letter_shift-2-1').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-2').classList.remove('hidden');
       break;
     case 'в':
       document.getElementById('letter_в').classList.add('highlighted');
+      document.getElementById('middle-finger-left-green-3').classList.remove('hidden');
       break;
     case 'В':
       document.getElementById('letter_в').classList.add('highlighted');
-      document.getElementById('letter_shift-1-1').classList.add('highlighted');
-      document.getElementById('little-finger-left-purple').classList.remove('hidden');
+      document.getElementById('middle-finger-left-green-3').classList.remove('hidden');
+      document.getElementById('letter_shift-2-1').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-2').classList.remove('hidden');
       break;
     case 'а':
       document.getElementById('letter_а').classList.add('highlighted');
+      document.getElementById('index-finger-orange-5').classList.remove('hidden');
       break;
     case 'А':
       document.getElementById('letter_а').classList.add('highlighted');
-      document.getElementById('letter_shift-1-1').classList.add('highlighted');
-      document.getElementById('little-finger-left-purple').classList.remove('hidden');
+      document.getElementById('index-finger-orange-5').classList.remove('hidden');
+      document.getElementById('letter_shift-2-1').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-2').classList.remove('hidden');
       break;
     case 'п':
       document.getElementById('letter_п').classList.add('highlighted');
+      document.getElementById('index-finger-orange-6').classList.remove('hidden');
       break;
     case 'П':
       document.getElementById('letter_п').classList.add('highlighted');
-      document.getElementById('letter_shift-1-1').classList.add('highlighted');
-      document.getElementById('little-finger-left-purple').classList.remove('hidden');
+      document.getElementById('index-finger-orange-6').classList.remove('hidden');
+      document.getElementById('letter_shift-2-1').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-2').classList.remove('hidden');
       break;
     case 'р':
       document.getElementById('letter_р').classList.add('highlighted');
+      document.getElementById('index-finger-yellow-5').classList.remove('hidden');
       break;
     case 'Р':
       document.getElementById('letter_р').classList.add('highlighted');
+      document.getElementById('index-finger-yellow-5').classList.remove('hidden');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
-      document.getElementById('little-finger-left-purple').classList.remove('hidden');
+      document.getElementById('little-finger-left-purple-2').classList.remove('hidden');
       break;
     case 'о':
       document.getElementById('letter_о').classList.add('highlighted');
+      document.getElementById('index-finger-yellow-6').classList.remove('hidden');
       break;
     case 'О':
       document.getElementById('letter_о').classList.add('highlighted');
+      document.getElementById('index-finger-yellow-6').classList.remove('hidden');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
-      document.getElementById('little-finger-left-purple').classList.remove('hidden');
+      document.getElementById('little-finger-left-purple-2').classList.remove('hidden');
       break;
     case 'л':
       document.getElementById('letter_л').classList.add('highlighted');
+      document.getElementById('middle-finger-right-green-3').classList.remove('hidden');
       break;
     case 'Л':
       document.getElementById('letter_л').classList.add('highlighted');
+      document.getElementById('middle-finger-right-green-3').classList.remove('hidden');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
-      document.getElementById('little-finger-left-purple').classList.remove('hidden');
+      document.getElementById('little-finger-left-purple-2').classList.remove('hidden');
       break;
     case 'д':
       document.getElementById('letter_д').classList.add('highlighted');
+      document.getElementById('ring-finger-right-lilac-3').classList.remove('hidden');
       break;
     case 'Д':
       document.getElementById('letter_д').classList.add('highlighted');
+      document.getElementById('ring-finger-right-lilac-3').classList.remove('hidden');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
-      document.getElementById('little-finger-left-purple').classList.remove('hidden');
+      document.getElementById('little-finger-left-purple-2').classList.remove('hidden');
       break;
     case 'ж':
       document.getElementById('letter_ж').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-10').classList.remove('hidden');
       break;
     case 'Ж':
       document.getElementById('letter_ж').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-10').classList.remove('hidden');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
-      document.getElementById('little-finger-left-purple').classList.remove('hidden');
+      document.getElementById('little-finger-left-purple-2').classList.remove('hidden');
       break;
     case 'э':
       document.getElementById('letter_э').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-11').classList.remove('hidden');
       break;
     case 'Э':
       document.getElementById('letter_э').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-11').classList.remove('hidden');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
-      document.getElementById('little-finger-left-purple').classList.remove('hidden');
+      document.getElementById('little-finger-left-purple-2').classList.remove('hidden');
       break;
 
       // ЧЕТВЕРТЫЙ РЯД КЛАВИАТУРЫ
 
     case 'я':
       document.getElementById('letter_я').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple-5').classList.remove('hidden');
       break;
     case 'Я':
       document.getElementById('letter_я').classList.add('highlighted');
-      document.getElementById('letter_shift-1-1').classList.add('highlighted');
-      document.getElementById('little-finger-left-purple').classList.remove('hidden');
+      document.getElementById('little-finger-left-purple-5').classList.remove('hidden');
+      document.getElementById('letter_shift-2-1').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-2').classList.remove('hidden');
       break;
     case 'ч':
       document.getElementById('letter_ч').classList.add('highlighted');
+      document.getElementById('ring-finger-left-lilac-4').classList.remove('hidden');
       break;
     case 'Ч':
       document.getElementById('letter_ч').classList.add('highlighted');
-      document.getElementById('letter_shift-1-1').classList.add('highlighted');
-      document.getElementById('little-finger-left-purple').classList.remove('hidden');
+      document.getElementById('ring-finger-left-lilac-4').classList.remove('hidden');
+      document.getElementById('letter_shift-2-1').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-2').classList.remove('hidden');
       break;
     case 'с':
       document.getElementById('letter_с').classList.add('highlighted');
+      document.getElementById('middle-finger-left-green-4').classList.remove('hidden');
       break;
     case 'С':
       document.getElementById('letter_с').classList.add('highlighted');
-      document.getElementById('letter_shift-1-1').classList.add('highlighted');
-      document.getElementById('little-finger-left-purple').classList.remove('hidden');
+      document.getElementById('middle-finger-left-green-4').classList.remove('hidden');
+      document.getElementById('letter_shift-2-1').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-2').classList.remove('hidden');
       break;
     case 'м':
       document.getElementById('letter_м').classList.add('highlighted');
+      document.getElementById('index-finger-orange-7').classList.remove('hidden');
       break;
     case 'М':
       document.getElementById('letter_м').classList.add('highlighted');
-      document.getElementById('letter_shift-1-1').classList.add('highlighted');
-      document.getElementById('little-finger-left-purple').classList.remove('hidden');
+      document.getElementById('index-finger-orange-7').classList.remove('hidden');
+      document.getElementById('letter_shift-2-1').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-2').classList.remove('hidden');
       break;
     case 'и':
       document.getElementById('letter_и').classList.add('highlighted');
+      document.getElementById('index-finger-orange-8').classList.remove('hidden');
       break;
     case 'И':
       document.getElementById('letter_и').classList.add('highlighted');
-      document.getElementById('letter_shift-1-1').classList.add('highlighted');
-      document.getElementById('little-finger-left-purple').classList.remove('hidden');
+      document.getElementById('index-finger-orange-8').classList.remove('hidden');
+      document.getElementById('letter_shift-2-1').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-2').classList.remove('hidden');
       break;
     case 'т':
       document.getElementById('letter_т').classList.add('highlighted');
+      document.getElementById('index-finger-yellow-7').classList.remove('hidden');
       break;
     case 'Т':
       document.getElementById('letter_т').classList.add('highlighted');
+      document.getElementById('index-finger-yellow-7').classList.remove('hidden');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
-      document.getElementById('little-finger-left-purple').classList.remove('hidden');
+      document.getElementById('little-finger-left-purple-2').classList.remove('hidden');
       break;
     case 'ь':
       document.getElementById('letter_ь').classList.add('highlighted');
+      document.getElementById('index-finger-yellow-8').classList.remove('hidden');
       break;
     case 'Ь':
       document.getElementById('letter_ь').classList.add('highlighted');
+      document.getElementById('index-finger-yellow-8').classList.remove('hidden');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
-      document.getElementById('little-finger-left-purple').classList.remove('hidden');
+      document.getElementById('little-finger-left-purple-2').classList.remove('hidden');
       break;
     case 'б':
       document.getElementById('letter_б').classList.add('highlighted');
+      document.getElementById('middle-finger-right-green-4').classList.remove('hidden');
       break;
     case 'Б':
       document.getElementById('letter_б').classList.add('highlighted');
+      document.getElementById('middle-finger-right-green-4').classList.remove('hidden');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
-      document.getElementById('little-finger-left-purple').classList.remove('hidden');
+      document.getElementById('little-finger-left-purple-2').classList.remove('hidden');
       break;
     case 'ю':
       document.getElementById('letter_ю').classList.add('highlighted');
+      document.getElementById('ring-finger-right-lilac-4').classList.remove('hidden');
       break;
     case 'Ю':
       document.getElementById('letter_ю').classList.add('highlighted');
+      document.getElementById('ring-finger-right-lilac-4').classList.remove('hidden');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
-      document.getElementById('little-finger-left-purple').classList.remove('hidden');
+      document.getElementById('little-finger-left-purple-2').classList.remove('hidden');
       break;
     case '.':
       document.getElementById('letter_dot').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-12').classList.remove('hidden');
       break;
     case ',':
       document.getElementById('letter_dot').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-12').classList.remove('hidden');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
-      document.getElementById('little-finger-left-purple').classList.remove('hidden');
+      document.getElementById('little-finger-left-purple-2').classList.remove('hidden');
       break;
+
+      // ПРОБЕЛ
     case ' ':
     document.getElementById('letter_space-1').classList.add('highlighted');
     document.getElementById('big-finger-right-gray').classList.remove('hidden');
