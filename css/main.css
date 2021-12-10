@@ -457,7 +457,7 @@ sup {
 }
 
 .btn:hover {
-  background-color: #63ac6a;
+  background-color: #53d160;
 }
 
 .your-result {
@@ -572,6 +572,8 @@ sup {
   position: absolute;
 }
 
+/* ПЕРВЫЙ РЯД КЛАВИАТУРЫ */
+
 #little-finger-right-purple-1 {
   transform: translate(650px, 0px);
   opacity: 75%;
@@ -619,7 +621,7 @@ sup {
   opacity: 55%;
 }
 
-#ring-finger-right-lilac-2 {
+#ring-finger-right-lilac-1 {
   transform: translate(445px, 23px);
   opacity: 55%;
 }
@@ -636,6 +638,77 @@ sup {
   transform: translate(580px, 15px);
   opacity: 55%;
 }
+
+/* ВТОРОЙ РЯД КЛАВИАТУРЫ */
+
+#little-finger-left-purple-3 {
+  transform: translate(95px, 5px);
+  opacity: 55%;
+}
+
+#ring-finger-left-lilac-2 {
+  transform: translate(140px, 5px);
+  opacity: 55%;
+}
+
+#middle-finger-left-green-2 {
+  transform: translate(175px, 5px);
+  opacity: 55%;
+}
+
+#index-finger-orange-3 {
+  transform: translate(208px, 5px);
+  opacity: 55%;
+}
+
+#index-finger-orange-4 {
+  transform: translate(262px, 5px);
+  opacity: 55%;
+}
+
+#index-finger-yellow-3 {
+  transform: translate(340px, 5px);
+  opacity: 55%;
+}
+
+#index-finger-yellow-4 {
+  transform: translate(385px, 5px);
+  opacity: 55%;
+}
+
+#middle-finger-right-green-2 {
+  transform: translate(430px, 5px);
+  opacity: 55%;
+}
+
+#ring-finger-right-lilac-2 {
+  transform: translate(478px, 5px);
+  opacity: 55%;
+}
+
+#little-finger-right-purple-6 {
+  transform: translate(520px, 5px);
+  opacity: 55%;
+}
+
+#little-finger-right-purple-7 {
+  transform: translate(563px, 5px);
+  opacity: 55%;
+}
+
+#little-finger-right-purple-8 {
+  transform: translate(610px, 5px);
+  opacity: 55%;
+}
+
+#little-finger-right-purple-9 {
+  transform: translate(663px, 5px);
+  opacity: 55%;
+}
+
+/* ТРЕТИЙ РЯД КЛАВИАТУРЫ */
+
+/* ЧЕТВЕРТЫЙ РЯД КЛАВИАТУРЫ */
 
 .correct-bottom {
   border-bottom: 1px solid #5ee26b !important;
