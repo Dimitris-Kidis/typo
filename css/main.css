@@ -899,7 +899,7 @@ sup {
   font-weight: 400;
   border: 1.5px solid #5ee26b;
   border-radius: 5px;
-  padding: 5px 12px;
+  padding: 4px 12px;
   transition: all 0.3s ease-in;
 }
 
@@ -913,7 +913,7 @@ sup {
   font-weight: 400;
   border: 1.5px solid red;
   border-radius: 5px;
-  padding: 5px 12px;
+  padding: 4px 12px;
   transition: all 0.3s ease-in;
 }
 
