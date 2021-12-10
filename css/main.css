@@ -901,6 +901,7 @@ sup {
   border-radius: 5px;
   padding: 4px 12px;
   transition: all 0.3s ease-in;
+  margin-left: 140px;
 }
 
 .legend-time:hover {
@@ -910,6 +911,7 @@ sup {
 
 .restart {
   color: #ff5454;
+  margin-left: 20px;
   font-weight: 400;
   border: 1.5px solid #ff5454;
   border-radius: 5px;
