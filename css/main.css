@@ -567,13 +567,74 @@ sup {
 }
 
 .hand {
-  width: 105px;
-  height: 129px;
+  width: 59px;
+  height: 103px;
   position: absolute;
 }
 
-#big-finger-right-gray {
-  transform: translate(300px, 180px);
+#little-finger-right-purple-1 {
+  transform: translate(650px, 0px);
+  opacity: 75%;
+}
+#little-finger-right-purple-2 {
+  transform: translate(650px, 0px);
+  opacity: 75%;
+}
+#little-finger-left-purple-1 {
+  transform: translate(70px, 0px);
+  opacity: 55%;
+}
+/* левый шифт */
+#little-finger-left-purple-2 {
+  transform: translate(50px, 0px);
+  opacity: 55%;
+}
+#ring-finger-left-lilac-1 {
+  transform: translate(110px, 23px);
+  opacity: 55%;
+}
+#middle-finger-left-green-1 {
+  transform: translate(147px, 23px);
+  opacity: 55%;
+}
+#index-finger-orange-1 {
+  transform: translate(184px, 23px);
+  opacity: 55%;
+}
+#index-finger-orange-2 {
+  transform: translate(237px, 23px);
+  opacity: 55%;
+}
+#index-finger-yellow-1 {
+  transform: translate(310px, 23px);
+  opacity: 55%;
+}
+#index-finger-yellow-2 {
+  transform: translate(360px, 23px);
+  opacity: 55%;
+}
+
+#middle-finger-right-green-1 {
+  transform: translate(400px, 23px);
+  opacity: 55%;
+}
+
+#ring-finger-right-lilac-2 {
+  transform: translate(445px, 23px);
+  opacity: 55%;
+}
+
+#little-finger-right-purple-3 {
+  transform: translate(480px, 15px);
+  opacity: 55%;
+}
+#little-finger-right-purple-4 {
+  transform: translate(530px, 15px);
+  opacity: 55%;
+}
+#little-finger-right-purple-5 {
+  transform: translate(580px, 15px);
+  opacity: 55%;
 }
 
 .correct-bottom {

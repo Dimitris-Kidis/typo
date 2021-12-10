@@ -1,5 +1,4 @@
 
-
 //Запись первого посещения, хранится в localStorage
 if ( !localStorage.date ) {
   var today;
@@ -90,6 +89,7 @@ let times = 0;
 let themeFlag = true;
 
 switchControlTheme.addEventListener('click', () => {
+  mainInput.focus();
     if (times%2 === 0 ) {
         switchCircleTheme.style.transform = "translate(22px, 4px)";
         switchCircleLanguage.style.transform = "translate(5px, 4px)";
@@ -158,6 +158,7 @@ switchControlTheme.addEventListener('click', () => {
         }
       }
     } else {
+      mainInput.focus();
         switchCircleTheme.style.transform = "translate(5px, 5px)";
         times++;
         theMoon.classList.add('hidden');
@@ -245,6 +246,7 @@ let keyboardHighlighted = false;
 const keyboardRu = document.getElementById('keyboard-ru');
 
 bucketRu.addEventListener('click', () => {
+  mainInput.focus();
   if (crossOne % 2 === 0) {
     bucketRuCross.style.display = 'block';
     crossOne++;
@@ -304,6 +306,7 @@ bucketRu.addEventListener('click', () => {
     keyboardHighlighted = false;
 
   } else {
+    mainInput.focus();
     bucketRuCross.style.display = 'none';
     crossOne++;
 
@@ -323,6 +326,7 @@ bucketRu.addEventListener('click', () => {
 
 
 keyboardRuIcon.addEventListener('click', () => {
+  mainInput.focus();
   if (crossTwo % 2 === 0) {
     keyboardRuCross.style.display = 'none';
     keyboardRu.classList.add('visibility');
@@ -338,9 +342,27 @@ keyboardRuIcon.addEventListener('click', () => {
   }
 })
 
+function disableHelper () {
+  for(let i = 0; i < keyboardRu.childNodes.length; i++) {
+    for(let j = 0; j < 50; j++) {
+      try {
+        if ( keyboardRu.children[i].children[j].classList.contains('hand') ) {
+          keyboardRu.children[i].children[j].classList.add('hidden')
+        }
+      } catch (error) {
+        break;
+      }
+    }
+  }
+}
+
+
+
+
 let handRuAct = false; let tempNext;
 
 handRu.addEventListener('click', () => {
+  mainInput.focus();
   if (crossThree % 2 === 0) {
     handRuCross.style.display = 'block';
     crossThree++;
@@ -350,11 +372,13 @@ handRu.addEventListener('click', () => {
         try {
           if ( mainInput.value.length >= 1 && textBox.children[mainInput.value.length-1].classList.contains('incorrect') ){
             // nextLetter = textBox.innerText[mainInput.value.length-1];
+            disableHelper();
             highlight('backspace');
             console.log('hello');
           
           } else if (!textBox.children[i].classList.contains('correct') && !textBox.children[i].classList.contains('incorrect')) {
             tempNext = textBox.innerText[i];
+            disableHelper();
             highlight(tempNext);
             break;
           }
@@ -368,6 +392,7 @@ handRu.addEventListener('click', () => {
     
 
   } else {
+    mainInput.focus();
     handRuCross.style.display = 'none';
     crossThree++;
     handRuAct = false;
@@ -375,6 +400,7 @@ handRu.addEventListener('click', () => {
       for(let j = 0; j < 15; j++) {
         try {
           keyboardRu.children[i].children[j].classList.remove('highlighted');
+          disableHelper();
         } catch (error) {
           break;
         }
@@ -411,111 +437,148 @@ tmp.split('').forEach(character => {
 })
 
 
+
+
+
+
+
 function highlight (param) {
+  disableHelper();
   switch (param) {
     case 'backspace':
       document.getElementById('letter_backspace-1').classList.add('highlighted');
-      break;
-    case 'ё':
-      document.getElementById('letter_ё').classList.add('highlighted');
-      break;
-    case 'Ë':
-      document.getElementById('letter_ё').classList.add('highlighted');
-      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-1').classList.remove('hidden');
       break;
     case '1':
       document.getElementById('letter_1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple-1').classList.remove('hidden');
       break;
     case '!':
-      document.getElementById('letter_shift-1-1').classList.add('highlighted');
       document.getElementById('letter_1').classList.add('highlighted');
-      break;
+      document.getElementById('letter_shift-2-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple-1').classList.remove('hidden');
+      document.getElementById('little-finger-right-purple-2').classList.remove('hidden');
       break;
     case '2':
       document.getElementById('letter_2').classList.add('highlighted');
+      document.getElementById('ring-finger-left-lilac-1').classList.remove('hidden');
       break;
     case '"':
       document.getElementById('letter_2').classList.add('highlighted');
-      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('ring-finger-left-lilac-1').classList.remove('hidden');
+      document.getElementById('letter_shift-2-1').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-2').classList.remove('hidden');
       break;
     case '3':
       document.getElementById('letter_3').classList.add('highlighted');
+      document.getElementById('middle-finger-left-green-1').classList.remove('hidden');
       break;
     case '№':
       document.getElementById('letter_3').classList.add('highlighted');
-      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('middle-finger-left-green-1').classList.remove('hidden');
+      document.getElementById('letter_shift-2-1').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-2').classList.remove('hidden');
       break;
     case '4':
       document.getElementById('letter_4').classList.add('highlighted');
+      document.getElementById('index-finger-orange-1').classList.remove('hidden');
       break;
     case ';':
       document.getElementById('letter_4').classList.add('highlighted');
-      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('index-finger-orange-1').classList.remove('hidden');
+      document.getElementById('letter_shift-2-1').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-2').classList.remove('hidden');
       break;
     case '5':
       document.getElementById('letter_5').classList.add('highlighted');
+      document.getElementById('index-finger-orange-2').classList.remove('hidden');
       break;
     case '%':
       document.getElementById('letter_5').classList.add('highlighted');
-      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('index-finger-orange-2').classList.remove('hidden');
+      document.getElementById('letter_shift-2-1').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-2').classList.remove('hidden');
       break;
     case '6':
       document.getElementById('letter_6').classList.add('highlighted');
+      document.getElementById('index-finger-yellow-1').classList.remove('hidden');
       break;
     case ':':
       document.getElementById('letter_6').classList.add('highlighted');
-      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('index-finger-yellow-1').classList.remove('hidden');
+      document.getElementById('letter_shift-2-1').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-2').classList.remove('hidden');
       break;
     case '7':
       document.getElementById('letter_7').classList.add('highlighted');
+      document.getElementById('index-finger-yellow-2').classList.remove('hidden');
       break;
     case '?':
       document.getElementById('letter_7').classList.add('highlighted');
+      document.getElementById('index-finger-yellow-2').classList.remove('hidden');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple-2').classList.remove('hidden');
       break;
     case '8':
       document.getElementById('letter_8').classList.add('highlighted');
+      document.getElementById('middle-finger-right-green-1').classList.remove('hidden');
       break;
     case '*':
       document.getElementById('letter_8').classList.add('highlighted');
+      document.getElementById('middle-finger-right-green-1').classList.remove('hidden');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple-2').classList.remove('hidden');
       break;
     case '9':
       document.getElementById('letter_9').classList.add('highlighted');
+      document.getElementById('ring-finger-right-lilac-2').classList.remove('hidden');
       break;
     case '(':
       document.getElementById('letter_9').classList.add('highlighted');
+      document.getElementById('ring-finger-right-lilac-2').classList.remove('hidden');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple-2').classList.remove('hidden');
       break;
     case '0':
       document.getElementById('letter_0').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-3').classList.remove('hidden');
       break;
     case ')':
       document.getElementById('letter_0').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-3').classList.remove('hidden');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple-2').classList.remove('hidden');
       break;
     case '-':
       document.getElementById('letter_minus').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-4').classList.remove('hidden');
       break;
     case '_':
       document.getElementById('letter_minus').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-4').classList.remove('hidden');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple-2').classList.remove('hidden');
       break;
     case '=':
       document.getElementById('letter_plus').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-5').classList.remove('hidden');
       break;
     case '+':
       document.getElementById('letter_plus').classList.add('highlighted');
+      document.getElementById('little-finger-right-purple-5').classList.remove('hidden');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple-2').classList.remove('hidden');
       break;
 
 
     case 'й':
       document.getElementById('letter_й').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple-2').classList.remove('hidden');
       break;
     case 'Й':
       document.getElementById('letter_й').classList.add('highlighted');
-      document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('letter_shift-2-1').classList.add('highlighted');
+      
       break;
     case 'ц':
       document.getElementById('letter_ц').classList.add('highlighted');
@@ -523,6 +586,7 @@ function highlight (param) {
     case 'Ц':
       document.getElementById('letter_ц').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'у':
       document.getElementById('letter_у').classList.add('highlighted');
@@ -530,6 +594,7 @@ function highlight (param) {
     case 'У':
       document.getElementById('letter_у').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'к':
       document.getElementById('letter_к').classList.add('highlighted');
@@ -537,6 +602,7 @@ function highlight (param) {
     case 'К':
       document.getElementById('letter_к').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'е':
       document.getElementById('letter_е').classList.add('highlighted');
@@ -544,6 +610,7 @@ function highlight (param) {
     case 'Е':
       document.getElementById('letter_е').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'н':
       document.getElementById('letter_н').classList.add('highlighted');
@@ -551,6 +618,7 @@ function highlight (param) {
     case 'Н':
       document.getElementById('letter_н').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'г':
       document.getElementById('letter_г').classList.add('highlighted');
@@ -558,6 +626,7 @@ function highlight (param) {
     case 'Г':
       document.getElementById('letter_г').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'ш':
       document.getElementById('letter_ш').classList.add('highlighted');
@@ -565,6 +634,7 @@ function highlight (param) {
     case 'Ш':
       document.getElementById('letter_ш').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'щ':
       document.getElementById('letter_щ').classList.add('highlighted');
@@ -572,6 +642,7 @@ function highlight (param) {
     case 'Щ':
       document.getElementById('letter_щ').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'з':
       document.getElementById('letter_з').classList.add('highlighted');
@@ -579,6 +650,7 @@ function highlight (param) {
     case 'З':
       document.getElementById('letter_з').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'х':
       document.getElementById('letter_х').classList.add('highlighted');
@@ -586,6 +658,7 @@ function highlight (param) {
     case 'Х':
       document.getElementById('letter_х').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'ъ':
       document.getElementById('letter_ъ').classList.add('highlighted');
@@ -593,6 +666,7 @@ function highlight (param) {
     case 'Ъ':
       document.getElementById('letter_ъ').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case '\\':
       document.getElementById('letter_slash').classList.add('highlighted');
@@ -600,6 +674,7 @@ function highlight (param) {
     case '/':
       document.getElementById('letter_slash').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'ф':
       document.getElementById('letter_ф').classList.add('highlighted');
@@ -607,6 +682,7 @@ function highlight (param) {
     case 'Ф':
       document.getElementById('letter_ф').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'ы':
       document.getElementById('letter_ы').classList.add('highlighted');
@@ -614,6 +690,7 @@ function highlight (param) {
     case 'Ы':
       document.getElementById('letter_ы').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'в':
       document.getElementById('letter_в').classList.add('highlighted');
@@ -621,6 +698,7 @@ function highlight (param) {
     case 'В':
       document.getElementById('letter_в').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'а':
       document.getElementById('letter_а').classList.add('highlighted');
@@ -628,6 +706,7 @@ function highlight (param) {
     case 'А':
       document.getElementById('letter_а').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'п':
       document.getElementById('letter_п').classList.add('highlighted');
@@ -635,6 +714,7 @@ function highlight (param) {
     case 'П':
       document.getElementById('letter_п').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'р':
       document.getElementById('letter_р').classList.add('highlighted');
@@ -642,6 +722,7 @@ function highlight (param) {
     case 'Р':
       document.getElementById('letter_р').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'о':
       document.getElementById('letter_о').classList.add('highlighted');
@@ -649,6 +730,7 @@ function highlight (param) {
     case 'О':
       document.getElementById('letter_о').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'л':
       document.getElementById('letter_л').classList.add('highlighted');
@@ -656,6 +738,7 @@ function highlight (param) {
     case 'Л':
       document.getElementById('letter_л').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'д':
       document.getElementById('letter_д').classList.add('highlighted');
@@ -663,6 +746,7 @@ function highlight (param) {
     case 'Д':
       document.getElementById('letter_д').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'ж':
       document.getElementById('letter_ж').classList.add('highlighted');
@@ -670,6 +754,7 @@ function highlight (param) {
     case 'Ж':
       document.getElementById('letter_ж').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'э':
       document.getElementById('letter_э').classList.add('highlighted');
@@ -677,6 +762,7 @@ function highlight (param) {
     case 'Э':
       document.getElementById('letter_э').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'я':
       document.getElementById('letter_я').classList.add('highlighted');
@@ -684,6 +770,7 @@ function highlight (param) {
     case 'Я':
       document.getElementById('letter_я').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'ч':
       document.getElementById('letter_ч').classList.add('highlighted');
@@ -691,14 +778,15 @@ function highlight (param) {
     case 'Ч':
       document.getElementById('letter_ч').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'с':
       document.getElementById('letter_с').classList.add('highlighted');
       break;
     case 'С':
-      // document.getElementById('big-finger-right-gray').classList.remove('hidden');
       document.getElementById('letter_с').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'м':
       document.getElementById('letter_м').classList.add('highlighted');
@@ -706,6 +794,7 @@ function highlight (param) {
     case 'М':
       document.getElementById('letter_м').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'и':
       document.getElementById('letter_и').classList.add('highlighted');
@@ -713,6 +802,7 @@ function highlight (param) {
     case 'И':
       document.getElementById('letter_и').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'т':
       document.getElementById('letter_т').classList.add('highlighted');
@@ -720,6 +810,7 @@ function highlight (param) {
     case 'Т':
       document.getElementById('letter_т').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'ь':
       document.getElementById('letter_ь').classList.add('highlighted');
@@ -727,6 +818,7 @@ function highlight (param) {
     case 'Ь':
       document.getElementById('letter_ь').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'б':
       document.getElementById('letter_б').classList.add('highlighted');
@@ -734,6 +826,7 @@ function highlight (param) {
     case 'Б':
       document.getElementById('letter_б').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case 'ю':
       document.getElementById('letter_ю').classList.add('highlighted');
@@ -741,6 +834,7 @@ function highlight (param) {
     case 'Ю':
       document.getElementById('letter_ю').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case '.':
       document.getElementById('letter_dot').classList.add('highlighted');
@@ -748,9 +842,11 @@ function highlight (param) {
     case ',':
       document.getElementById('letter_dot').classList.add('highlighted');
       document.getElementById('letter_shift-1-1').classList.add('highlighted');
+      document.getElementById('little-finger-left-purple').classList.remove('hidden');
       break;
     case ' ':
     document.getElementById('letter_space-1').classList.add('highlighted');
+    document.getElementById('big-finger-right-gray').classList.remove('hidden');
     break;
 
 
@@ -868,6 +964,7 @@ const arrayValue = mainInput.value.split('');
       for(let j = 0; j < 15; j++) {
         try {
           keyboardRu.children[i].children[j].classList.remove('highlighted');
+
         } catch (error) {
           break;
         }
