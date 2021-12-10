@@ -1145,7 +1145,7 @@ oldInput = mainInput.value;
     //Подсчет точности
     localAccuracy.innerHTML = `${Math.round((textBox.childNodes.length-countIncorrect)/textBox.childNodes.length * 100) }%`;
     //Затраченное время
-    localTime.innerHTML = `${Math.trunc(seconds/60)}:${((seconds%60).toFixed(1)).toString().padStart(2, "0")}`;
+    localTime.innerHTML = `${Math.trunc(seconds/60)}:${((seconds%60).toFixed(0)).toString().padStart(2, "0")}`;
 
 
     document.getElementById('vk_share_button').innerHTML = VK.Share.button({
