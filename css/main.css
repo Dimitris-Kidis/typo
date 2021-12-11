@@ -522,11 +522,11 @@ sup {
 .user-stats-graph-2 {
   margin-bottom: 30px;
   width: 270px;
-  height: 250px;
+  height: 205px;
 }
 .user-stats-item-2 {
   width: 270px;
-  height: 70px;
+  height: 85px;
   margin-bottom: 30px;
   padding: 12px;
   text-align: center;
@@ -542,7 +542,7 @@ sup {
   padding-top: 12px;
 }
 .num {
-  font-size: 22px;
+  font-size: 30px;
   font-weight: bold;
   color: #ff5454;
 }
@@ -901,7 +901,7 @@ sup {
   border-radius: 5px;
   padding: 4px 12px;
   transition: all 0.3s ease-in;
-  margin-left: 140px;
+  margin-left: 14c0px;
 }
 
 .legend-time:hover {
@@ -923,4 +923,60 @@ sup {
 .restart:hover {
   background-color: #ff5454;
   color: white;
+}
+
+.graph-container-2 {
+  width: 242px;
+  height: 121px;
+  margin: 0 auto;
+}
+
+.graph-description-2 {
+  font-weight: 300;
+  display: flex;
+  flex-direction: row;
+
+  justify-content: center;
+  font-size: 12px;
+  vertical-align: middle;
+  align-items: center;
+}
+
+.legend-cicrle-2 {
+  width: 15px;
+  height: 15px;
+  display: inline-flex;
+  align-items: center;
+  margin-right: 6px;
+  border-radius: 50%;
+  background-color: #5ee26b;
+}
+.legend-cicrle-3 {
+  width: 15px;
+  height: 15px;
+  display: inline-flex;
+  align-items: center;
+  margin-right: 6px;
+  border-radius: 50%;
+  border: 1px solid #5ee26b;
+}
+
+.description-cpm {
+  font-weight: 300;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 12px;
+  vertical-align: middle;
+  align-items: center;
+  margin-right: 10px;
+}
+.description-accuracy {
+  font-weight: 300;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 12px;
+  vertical-align: middle;
+  align-items: center;
 }
