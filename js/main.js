@@ -1,3 +1,25 @@
+var labels = [];
+var mas = [];
+
+
+
+
+
+//Данные графикаы
+
+if ( !localStorage.labels && !localStorage.mas ) {
+  localStorage.setItem('labels', JSON.stringify([]));
+  localStorage.setItem('mas', JSON.stringify([]));
+
+} else {
+  mas = JSON.parse(localStorage.getItem('mas'));
+  labels = JSON.parse(localStorage.getItem('labels'));
+  console.log(mas, typeof(mas));
+}
+
+
+
+
 
 //Запись первого посещения, хранится в localStorage
 if ( !localStorage.date ) {
@@ -972,7 +994,6 @@ var check = 0;
 
 
 let timeFlag = false;
-
 mainInput.addEventListener('input', e => {
 
   if ( key === false ) {
@@ -1070,11 +1091,9 @@ const arrayValue = mainInput.value.split('');
         mainInput.style.borderBottom = '1px solid #ff0000';
         textBox.style.border = '1px solid #ff0000';
         mistakes.push(i);
-        console.log(mistakes);
       } else if ( mainInput.value.length == '' ) {
         mainInput.style.borderBottom = '1px solid #a9a9a9';
         textBox.style.border = '1px solid #4e4e4e';
-        console.log('voti');
       } else if ( mainInput.value.length == 1 && (textBox.innerText[0] == mainInput.value[0]) ) {
         mainInput.style.borderBottom = '1px solid #5ee26b';
         textBox.style.border = '1px solid #5ee26b';
@@ -1147,6 +1166,9 @@ oldInput = mainInput.value;
     //Затраченное время
     localTime.innerHTML = `${Math.trunc(seconds/60)}:${((seconds%60).toFixed(0)).toString().padStart(2, "0")}`;
 
+    var tempooo = localCPM.innerText;
+
+
 
     document.getElementById('vk_share_button').innerHTML = VK.Share.button({
       url: 'https://dimitris-kidis.github.io/typo/',
@@ -1175,7 +1197,6 @@ oldInput = mainInput.value;
     }
 
     if ( parseInt(textBox.innerText.length) > parseInt(localStorage.getItem('longestText')) ) {
-      console.log('tuttta');
       localStorage.setItem('longestText', JSON.stringify(parseInt(textBox.innerText.length)));
 
     }
@@ -1192,18 +1213,88 @@ oldInput = mainInput.value;
     parseInt(JSON.parse(localStorage.getItem('textCount'))) === 1 ? wow = (parseInt(localAccuracy.innerText) + averageAccuracy )/1 : wow = (parseInt(localAccuracy.innerText) + averageAccuracy )/2;
     localStorage.setItem('averageAccuracy', JSON.stringify(Math.round(wow)));
 
-    
-
-
 
     resultText.innerHTML += `  —  автор`;
+
+
+    let now = [];
+    let arr = [];
+    let temp = [];
+
+    if ( (JSON.parse(localStorage.getItem('labels'))).length > 0 && (JSON.parse(localStorage.getItem('labels'))).length != 7 ) {
+      temp = (JSON.parse(localStorage.getItem('labels')));
+      temp.push(new Date().getDate()+'-'+(new Date().getMonth()+1)+'-'+new Date().getFullYear());
+      now = temp;
+    } else if ( (JSON.parse(localStorage.getItem('labels'))).length === 7 ) {
+      temp = (JSON.parse(localStorage.getItem('labels')));
+      temp.shift();
+      temp.push(new Date().getDate()+'-'+(new Date().getMonth()+1)+'-'+new Date().getFullYear());
+      now = temp;
+    } else {
+      now = [new Date().getDate()+'-'+(new Date().getMonth()+1)+'-'+new Date().getFullYear()];
+    }
+    localStorage.setItem('labels', JSON.stringify(now));
+
+    if ( (JSON.parse(localStorage.getItem('mas'))).length > 0 && (JSON.parse(localStorage.getItem('mas'))).length != 7 ) {
+      temp = (JSON.parse(localStorage.getItem('mas')));
+      temp.push(parseInt(localCPM.innerText));
+      arr = temp;
+    } else if ( (JSON.parse(localStorage.getItem('mas'))).length === 7 ) {
+      temp = (JSON.parse(localStorage.getItem('mas')));
+      temp.shift();
+      temp.push(parseInt(localCPM.innerText));
+      arr = temp;
+    } else {
+      arr = [parseInt(localCPM.innerText)];
+    }
+    localStorage.setItem('mas', JSON.stringify(arr));
+
+    
+    // if ( (JSON.parse(localStorage.getItem('labels'))).length > 0 ) {
+    //   temp = (JSON.parse(localStorage.getItem('labels')));
+    //   temp.push(new Date().getDate()+'-'+(new Date().getMonth()+1)+'-'+new Date().getFullYear());
+    //   now = temp;
+    // } else if ( (JSON.parse(localStorage.getItem('labels'))).length > 0 === 7 ) {
+    //   temp = (JSON.parse(localStorage.getItem('labels')));
+    //   temp.shift();
+    //   temp.push(new Date().getDate()+'-'+(new Date().getMonth()+1)+'-'+new Date().getFullYear());
+    //   now = temp;
+    // } else {
+    //   now = [new Date().getDate()+'-'+(new Date().getMonth()+1)+'-'+new Date().getFullYear()];
+    // }
+    // localStorage.setItem('labels', JSON.stringify(now));
+
+    // if ( (JSON.parse(localStorage.getItem('mas'))).length > 0 ) {
+    //   temp = (JSON.parse(localStorage.getItem('mas')));
+    //   temp.push(parseInt(localCPM.innerText));
+    //   arr = temp;
+    // } else if ( (JSON.parse(localStorage.getItem('mas'))).length > 0 === 7 ) {
+    //   temp = (JSON.parse(localStorage.getItem('mas')));
+    //   temp.shift();
+    //   temp.push(parseInt(localCPM.innerText));
+    //   arr = temp;
+    // } else {
+    //   arr = [parseInt(localCPM.innerText)];
+    // }
+    // localStorage.setItem('mas', JSON.stringify(arr));
+
+
+    // (JSON.parse(localStorage.getItem('labels'))).length >= 1 ? now = (JSON.parse(localStorage.getItem('labels'))).push(new Date().getDate()+'-'+(new Date().getMonth()+1)+'-'+new Date().getFullYear()) : now = [new Date().getDate()+'-'+(new Date().getMonth()+1)+'-'+new Date().getFullYear()];
+    // localStorage.setItem('labels', JSON.stringify(now));
+
+
+
+    // (JSON.parse(localStorage.getItem('mas'))).length >= 1 ? arr = (JSON.parse(localStorage.getItem('mas'))).push(parseInt(localCPM.innerText)) : arr = [parseInt(localCPM.innerText)];
+    // localStorage.setItem('mas', JSON.stringify(arr));
+
+
   }
 
 
 
   if ( mainInput.value.length === 0 && themeFlag === false ) {
     textBox.style.border = '1px solid white';
-  }
+  }  
 })
 
 averageAccuracy = parseInt(JSON.parse(localStorage.getItem('averageAccuracy')));
@@ -1217,21 +1308,14 @@ restart.addEventListener('click', () => {
 
 
 
-const labels = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-];
+
 const data = {
   labels: labels,
   datasets: [{
     label: ' ',
     backgroundColor: 'rgb(0, 231, 71)',
     borderColor: 'rgb(0, 231, 71)',
-    data: [-20, 10, 5, -26, 20, 30, 45],
+    data: mas,
     tension: 0.2
   }]
 };
