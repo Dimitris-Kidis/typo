@@ -44,7 +44,7 @@ h3 {
 
 #myModal {
   width: 40%;
-  height: 200px;
+  height: 100px;
   padding: 30px 20px;
   border-radius: 4px;
   border: 1px solid #4e4e4e;
@@ -59,7 +59,7 @@ h3 {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -90%);
+  transform: translate(-50%, -85%);
 }
 
 #myModal #myModal__close {
@@ -88,8 +88,7 @@ h3 {
 .languages {
   display: flex;
   justify-content: space-around;
-  margin-top: 20px;
-  margin-bottom: 40px;
+  margin-top: 5px;
 }
 .prog-languages {
   display: flex;
